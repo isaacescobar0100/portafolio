@@ -67,7 +67,7 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <li key={link.name}>
               <a
                 href={link.href}

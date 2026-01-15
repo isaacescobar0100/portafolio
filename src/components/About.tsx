@@ -72,7 +72,7 @@ export default function About() {
             <motion.div variants={itemVariants} className="space-y-6">
               <p className="text-dark-200 text-lg leading-relaxed">
                 Soy <span className="text-white font-semibold">{personalInfo.name}</span>,
-                egresado de <span className="text-primary-400">{education.degree}</span>.
+                <span className="text-primary-400">{education.degree}</span>.
                 Mi pasión por la tecnología me ha llevado a especializarme en el desarrollo
                 de aplicaciones web completas, desde la interfaz de usuario hasta la
                 arquitectura del servidor.

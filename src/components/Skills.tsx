@@ -8,23 +8,17 @@ interface SkillBarProps {
   delay: number;
 }
 
-function SkillBar({ name, level, delay }: SkillBarProps) {
+function SkillBar({ name, delay }: SkillBarProps) {
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <span className="text-dark-200 font-medium">{name}</span>
-        <span className="text-dark-400 text-sm">{level}%</span>
-      </div>
-      <div className="h-2 bg-dark-800 rounded-full overflow-hidden">
-        <motion.div
-          className="h-full bg-gradient-to-r from-primary-500 to-primary-400 rounded-full"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay, ease: "easeOut" }}
-        />
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3, delay }}
+      className="px-4 py-2 bg-dark-800 rounded-lg"
+    >
+      <span className="text-dark-200 font-medium">{name}</span>
+    </motion.div>
   );
 }
 
@@ -50,13 +44,13 @@ function SkillCategory({ title, skills: categorySkills, icon, delay }: SkillCate
         </div>
         <h3 className="text-xl font-semibold text-white">{title}</h3>
       </div>
-      <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
         {categorySkills.map((skill, index) => (
           <SkillBar
             key={skill.name}
             name={skill.name}
             level={skill.level}
-            delay={delay + index * 0.1}
+            delay={delay + index * 0.05}
           />
         ))}
       </div>

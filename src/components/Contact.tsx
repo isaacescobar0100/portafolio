@@ -3,8 +3,14 @@ import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import { Send, Mail, MapPin, Phone, CheckCircle, AlertCircle } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
+import emailjs from '@emailjs/browser';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = 'service_3tqfglu';
+const EMAILJS_TEMPLATE_ID = 'template_4hzb9x9';
+const EMAILJS_PUBLIC_KEY = 'x2h4hmF2Iel9E9Ro2';
 
 export default function Contact() {
   const { ref, isInView } = useInView({ threshold: 0.2 });
@@ -19,19 +25,21 @@ export default function Contact() {
     e.preventDefault();
     setFormStatus('sending');
 
-    // Simular envío - Aquí puedes integrar con tu servicio de email preferido
-    // Como EmailJS, Formspree, o tu propio backend
     try {
-      // Simulación de delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Aquí iría la lógica real de envío
-      console.log('Form data:', formData);
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          title: 'Nuevo mensaje de contacto',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
       setFormStatus('success');
       setFormData({ name: '', email: '', message: '' });
-
-      // Reset status después de unos segundos
       setTimeout(() => setFormStatus('idle'), 5000);
     } catch {
       setFormStatus('error');
