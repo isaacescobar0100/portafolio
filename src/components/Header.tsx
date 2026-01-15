@@ -12,6 +12,11 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
+      // Cerrar menú móvil al hacer scroll
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+
       // Detectar sección activa
       const sections = navLinks.map(link => link.href.replace('#', ''));
       for (const section of sections.reverse()) {
@@ -28,7 +33,7 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
