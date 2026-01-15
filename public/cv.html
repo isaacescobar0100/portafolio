@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Isaac Escobar Vega</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background: #fff;
+    }
+    .header {
+      text-align: center;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid #3b82f6;
+      margin-bottom: 15px;
+    }
+    .header h1 {
+      font-size: 32px;
+      color: #1e293b;
+      margin-bottom: 5px;
+    }
+    .header .subtitle {
+      font-size: 18px;
+      color: #3b82f6;
+      margin-bottom: 15px;
+    }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      font-size: 14px;
+      color: #64748b;
+    }
+    .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .section-title {
+      font-size: 18px;
+      color: #1e293b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .profile p {
+      color: #475569;
+      text-align: justify;
+    }
+    .experience-item, .project-item {
+      margin-bottom: 20px;
+    }
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .experience-title {
+      font-weight: 600;
+      color: #1e293b;
+      font-size: 16px;
+    }
+    .experience-company {
+      color: #3b82f6;
+      font-weight: 500;
+    }
+    .experience-period {
+      color: #64748b;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .experience-description {
+      color: #475569;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tech-tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .skill-category h4 {
+      color: #1e293b;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .skill-list {
+      list-style: none;
+      font-size: 13px;
+      color: #475569;
+    }
+    .skill-list li {
+      padding: 3px 0;
+    }
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+    }
+    .education-degree {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .education-institution {
+      color: #3b82f6;
+    }
+    .project-title {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .project-description {
+      color: #475569;
+      font-size: 14px;
+    }
+    @media print {
+      body {
+        padding: 20px;
+      }
+      .section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="projects/foto.jfif" alt="Isaac Escobar Vega" class="profile-photo">
+    <h1>ISAAC ESCOBAR VEGA</h1>
+    <div class="subtitle">Ingeniero de Sistemas y Computación | Desarrollador Full Stack</div>
+    <div class="contact-info">
+      <span>Barranquilla, Colombia</span>
+      <span>+57 300 190 0438</span>
+      <span>issac10.es@gmail.com</span>
+    </div>
+    <div class="contact-info" style="margin-top: 8px;">
+      <span>linkedin.com/in/isaac-escobar-vega-9884a8220</span>
+      <span>github.com/isaacescobar0100</span>
+    </div>
+  </div>
+
+  <div class="section profile">
+    <h2 class="section-title">Perfil Profesional</h2>
+    <p>Ingeniero de Sistemas y Computación apasionado por crear soluciones tecnológicas innovadoras. Me especializo en el desarrollo de aplicaciones web modernas, con un enfoque en código limpio, rendimiento y experiencia de usuario excepcional. Disponible para nuevas oportunidades.</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Experiencia Profesional</h2>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <div>
+          <div class="experience-title">Desarrollador Full Stack Independiente</div>
+          <div class="experience-company">Freelance</div>
+        </div>
+        <div class="experience-period">Presente</div>
+      </div>
+      <p class="experience-description">Desarrollo de aplicaciones web completas para clientes, incluyendo sistemas de gestión, redes sociales y landing pages. Manejo de todo el ciclo de desarrollo desde el diseño hasta el despliegue en servidores VPS.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Flask</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Nginx</span>
+        <span class="tech-tag">PHP</span>
+        <span class="tech-tag">Tailwind CSS</span>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <div>
+          <div class="experience-title">Practicante de Desarrollo de Software</div>
+          <div class="experience-company">SENA</div>
+        </div>
+        <div class="experience-period">6 meses</div>
+      </div>
+      <p class="experience-description">Práctica profesional en desarrollo de aplicaciones, participando en proyectos reales aplicando metodologías ágiles y buenas prácticas de programación.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">PHP</span>
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Educación</h2>
+    <div class="education-item">
+      <div>
+        <div class="education-degree">Ingeniería de Sistemas y Computación</div>
+        <div class="education-institution">Corporación Universitaria Latinoamericana (CUL)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Proyectos Destacados</h2>
+
+    <div class="project-item">
+      <div class="project-title">Sistema de Gestión para Restaurantes</div>
+      <p class="project-description">Plataforma web completa con sistema de pedidos a domicilio, módulos de administración, cocina, caja y meseros. Desplegado en servidor VPS con Docker y Nginx. Integración de pagos con Wompi.</p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">SevenJois - Red Social para Cineastas</div>
+      <p class="project-description">Red social para cineastas amateurs con procesamiento de video (FFmpeg), subtítulos automáticos con IA, y monetización integrada. Soporte móvil con Capacitor.</p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">Sistema de Matrículas</div>
+      <p class="project-description">Sistema web para gestión de matrículas académicas con registro de estudiantes, administración de cursos y procesamiento de pagos con Wompi.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Habilidades Técnicas</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h4>Frontend</h4>
+        <ul class="skill-list">
+          <li>React / TypeScript</li>
+          <li>JavaScript (ES6+)</li>
+          <li>HTML5 / CSS3</li>
+          <li>Tailwind CSS</li>
+          <li>Responsive Design</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4>Backend</h4>
+        <ul class="skill-list">
+          <li>Node.js</li>
+          <li>Python / Flask</li>
+          <li>PHP</li>
+          <li>MySQL / SQL</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4>Herramientas</h4>
+        <ul class="skill-list">
+          <li>Git / GitHub</li>
+          <li>Docker</li>
+          <li>Nginx</li>
+          <li>VPS / SSH</li>
+          <li>Scrum / Agile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
