@@ -1,0 +1,429 @@
+/*==========================================================
+ANIMATIONS.CSS
+==========================================================*/
+
+/*==============================
+KEYFRAMES
+==============================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeLeft{
+
+    from{
+
+        opacity:0;
+        transform:translateX(-50px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes fadeRight{
+
+    from{
+
+        opacity:0;
+        transform:translateX(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.03);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==============================
+INITIAL STATES
+==============================*/
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.reveal-left{
+
+    opacity:0;
+
+    transform:translateX(-60px);
+
+    transition:1s ease;
+
+}
+
+.reveal-left.active{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+.reveal-right{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+    transition:1s ease;
+
+}
+
+.reveal-right.active{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+.reveal-scale{
+
+    opacity:0;
+
+    transform:scale(.96);
+
+    transition:1s ease;
+
+}
+
+.reveal-scale.active{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/*==============================
+HERO
+==============================*/
+
+.hero small{
+
+    animation:fadeDown .8s ease forwards;
+
+}
+
+.hero h1{
+
+    animation:fadeLeft 1s ease forwards;
+
+}
+
+.hero h2{
+
+    animation:fadeLeft 1.2s ease forwards;
+
+}
+
+.hero p{
+
+    animation:fadeLeft 1.4s ease forwards;
+
+}
+
+.hero-buttons{
+
+    animation:fadeUp 1.6s ease forwards;
+
+}
+
+.hero-image{
+
+    animation:zoomIn 1.2s ease forwards;
+
+}
+
+/*==============================
+BUTTONS
+==============================*/
+
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*==============================
+CARDS
+==============================*/
+
+.skill-card{
+
+    transition:.35s ease;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.project{
+
+    transition:.35s;
+
+}
+
+.project:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.project img{
+
+    transition:transform .8s ease;
+
+}
+
+.project:hover img{
+
+    transform:scale(1.04);
+
+}
+
+/*==============================
+TIMELINE
+==============================*/
+
+.timeline-item{
+
+    transition:.4s ease;
+
+}
+
+.timeline-item:hover{
+
+    transform:translateX(8px);
+
+}
+
+/*==============================
+SOCIAL LINKS
+==============================*/
+
+.socials a{
+
+    transition:.3s;
+
+}
+
+.socials a:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/*==============================
+FORM
+==============================*/
+
+input,
+textarea{
+
+    transition:.3s;
+
+}
+
+input:focus,
+textarea:focus{
+
+    transform:translateY(-2px);
+
+}
+
+/*==============================
+HEADER
+==============================*/
+
+.header{
+
+    transition:
+
+        background .35s,
+
+        border .35s,
+
+        box-shadow .35s;
+
+}
+
+.header.scrolled{
+
+    box-shadow:
+
+        0 12px 30px rgba(0,0,0,.05);
+
+}
+
+/*==============================
+IMAGE
+==============================*/
+
+.hero-image img{
+
+    animation:float 7s ease-in-out infinite;
+
+}
+
+/*==============================
+SMOOTH
+==============================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+*{
+
+    transition-property:
+
+        color,
+        background,
+        border,
+        opacity,
+        transform;
+
+}
+
+/*==============================
+END
+==============================*/
