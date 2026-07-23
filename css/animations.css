@@ -6,135 +6,135 @@ ANIMATIONS.CSS
 KEYFRAMES
 ==============================*/
 
-@keyframes fadeUp{
+@keyframes fadeUp {
 
-    from{
+    from {
 
-        opacity:0;
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateY(0);
+        opacity: 0;
+        transform: translateY(40px);
 
     }
 
-}
+    to {
 
-@keyframes fadeDown{
-
-    from{
-
-        opacity:0;
-        transform:translateY(-30px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateY(0);
+        opacity: 1;
+        transform: translateY(0);
 
     }
 
 }
 
-@keyframes fadeLeft{
+@keyframes fadeDown {
 
-    from{
+    from {
 
-        opacity:0;
-        transform:translateX(-50px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateX(0);
+        opacity: 0;
+        transform: translateY(-30px);
 
     }
 
-}
+    to {
 
-@keyframes fadeRight{
-
-    from{
-
-        opacity:0;
-        transform:translateX(50px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateX(0);
+        opacity: 1;
+        transform: translateY(0);
 
     }
 
 }
 
-@keyframes zoomIn{
+@keyframes fadeLeft {
 
-    from{
+    from {
 
-        opacity:0;
-        transform:scale(.95);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:scale(1);
+        opacity: 0;
+        transform: translateX(-50px);
 
     }
 
-}
+    to {
 
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.03);
-
-    }
-
-    100%{
-
-        transform:scale(1);
+        opacity: 1;
+        transform: translateX(0);
 
     }
 
 }
 
-@keyframes float{
+@keyframes fadeRight {
 
-    0%{
+    from {
 
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-8px);
+        opacity: 0;
+        transform: translateX(50px);
 
     }
 
-    100%{
+    to {
 
-        transform:translateY(0);
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+}
+
+@keyframes zoomIn {
+
+    from {
+
+        opacity: 0;
+        transform: scale(.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: scale(1);
+
+    }
+
+}
+
+@keyframes pulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.03);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+@keyframes float {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
 
     }
 
@@ -144,75 +144,75 @@ KEYFRAMES
 INITIAL STATES
 ==============================*/
 
-.reveal{
+.reveal {
 
-    opacity:0;
+    opacity: 0;
 
-    transform:translateY(40px);
+    transform: translateY(40px);
 
-    transition:1s ease;
-
-}
-
-.reveal.active{
-
-    opacity:1;
-
-    transform:translateY(0);
+    transition: 1s ease;
 
 }
 
-.reveal-left{
+.reveal.active {
 
-    opacity:0;
+    opacity: 1;
 
-    transform:translateX(-60px);
-
-    transition:1s ease;
+    transform: translateY(0);
 
 }
 
-.reveal-left.active{
+.reveal-left {
 
-    opacity:1;
+    opacity: 0;
 
-    transform:translateX(0);
+    transform: translateX(-60px);
 
-}
-
-.reveal-right{
-
-    opacity:0;
-
-    transform:translateX(60px);
-
-    transition:1s ease;
+    transition: 1s ease;
 
 }
 
-.reveal-right.active{
+.reveal-left.active {
 
-    opacity:1;
+    opacity: 1;
 
-    transform:translateX(0);
-
-}
-
-.reveal-scale{
-
-    opacity:0;
-
-    transform:scale(.96);
-
-    transition:1s ease;
+    transform: translateX(0);
 
 }
 
-.reveal-scale.active{
+.reveal-right {
 
-    opacity:1;
+    opacity: 0;
 
-    transform:scale(1);
+    transform: translateX(60px);
+
+    transition: 1s ease;
+
+}
+
+.reveal-right.active {
+
+    opacity: 1;
+
+    transform: translateX(0);
+
+}
+
+.reveal-scale {
+
+    opacity: 0;
+
+    transform: scale(.96);
+
+    transition: 1s ease;
+
+}
+
+.reveal-scale.active {
+
+    opacity: 1;
+
+    transform: scale(1);
 
 }
 
@@ -220,39 +220,39 @@ INITIAL STATES
 HERO
 ==============================*/
 
-.hero small{
+.hero small {
 
-    animation:fadeDown .8s ease forwards;
-
-}
-
-.hero h1{
-
-    animation:fadeLeft 1s ease forwards;
+    animation: fadeDown .8s ease forwards;
 
 }
 
-.hero h2{
+.hero h1 {
 
-    animation:fadeLeft 1.2s ease forwards;
-
-}
-
-.hero p{
-
-    animation:fadeLeft 1.4s ease forwards;
+    animation: fadeLeft 1s ease forwards;
 
 }
 
-.hero-buttons{
+.hero h2 {
 
-    animation:fadeUp 1.6s ease forwards;
+    animation: fadeLeft 1.2s ease forwards;
 
 }
 
-.hero-image{
+.hero p {
 
-    animation:zoomIn 1.2s ease forwards;
+    animation: fadeLeft 1.4s ease forwards;
+
+}
+
+.hero-buttons {
+
+    animation: fadeUp 1.6s ease forwards;
+
+}
+
+.hero-image {
+
+    animation: zoomIn 1.2s ease forwards;
 
 }
 
@@ -260,21 +260,21 @@ HERO
 BUTTONS
 ==============================*/
 
-.btn{
+.btn {
 
-    transition:.35s;
-
-}
-
-.btn:hover{
-
-    transform:translateY(-3px);
+    transition: .35s;
 
 }
 
-.btn:active{
+.btn:hover {
 
-    transform:scale(.98);
+    transform: translateY(-3px);
+
+}
+
+.btn:active {
+
+    transform: scale(.98);
 
 }
 
@@ -282,39 +282,39 @@ BUTTONS
 CARDS
 ==============================*/
 
-.skill-card{
+.skill-card {
 
-    transition:.35s ease;
-
-}
-
-.skill-card:hover{
-
-    transform:translateY(-8px);
+    transition: .35s ease;
 
 }
 
-.project{
+.skill-card:hover {
 
-    transition:.35s;
-
-}
-
-.project:hover{
-
-    transform:translateY(-6px);
+    transform: translateY(-8px);
 
 }
 
-.project img{
+.project {
 
-    transition:transform .8s ease;
+    transition: .35s;
 
 }
 
-.project:hover img{
+.project:hover {
 
-    transform:scale(1.04);
+    transform: translateY(-6px);
+
+}
+
+.project img {
+
+    transition: transform .8s ease;
+
+}
+
+.project:hover img {
+
+    transform: scale(1.04);
 
 }
 
@@ -322,15 +322,15 @@ CARDS
 TIMELINE
 ==============================*/
 
-.timeline-item{
+.timeline-item {
 
-    transition:.4s ease;
+    transition: .4s ease;
 
 }
 
-.timeline-item:hover{
+.timeline-item:hover {
 
-    transform:translateX(8px);
+    transform: translateX(8px);
 
 }
 
@@ -338,15 +338,15 @@ TIMELINE
 SOCIAL LINKS
 ==============================*/
 
-.socials a{
+.socials a {
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
-.socials a:hover{
+.socials a:hover {
 
-    transform:translateY(-3px);
+    transform: translateY(-3px);
 
 }
 
@@ -355,16 +355,16 @@ FORM
 ==============================*/
 
 input,
-textarea{
+textarea {
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
 input:focus,
-textarea:focus{
+textarea:focus {
 
-    transform:translateY(-2px);
+    transform: translateY(-2px);
 
 }
 
@@ -372,7 +372,7 @@ textarea:focus{
 HEADER
 ==============================*/
 
-.header{
+.header {
 
     transition:
 
@@ -384,11 +384,11 @@ HEADER
 
 }
 
-.header.scrolled{
+.header.scrolled {
 
     box-shadow:
 
-        0 12px 30px rgba(0,0,0,.05);
+        0 12px 30px rgba(0, 0, 0, .05);
 
 }
 
@@ -396,9 +396,9 @@ HEADER
 IMAGE
 ==============================*/
 
-.hero-image img{
+.hero-image img {
 
-    animation:float 7s ease-in-out infinite;
+    animation: float 7s ease-in-out infinite;
 
 }
 
@@ -406,13 +406,13 @@ IMAGE
 SMOOTH
 ==============================*/
 
-html{
+html {
 
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 
 }
 
-*{
+* {
 
     transition-property:
 
@@ -427,3 +427,167 @@ html{
 /*==============================
 END
 ==============================*/
+/*==========================================================
+PROGRESS BAR
+==========================================================*/
+
+.progress-bar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    height: 3px;
+
+    width: 0;
+
+    background: #111;
+
+    z-index: 99999;
+
+}
+
+
+/*==========================================================
+HERO INTRO
+==========================================================*/
+
+.hero {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition: 1s ease;
+
+}
+
+.hero.hero-loaded {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/*==========================================================
+STAGGER
+==========================================================*/
+
+.services-grid>*,
+
+.process-grid>*,
+
+.tech-grid>* {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition: .7s ease;
+
+}
+
+.services-grid>.active,
+
+.process-grid>.active,
+
+.tech-grid>.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/*==========================================================
+PROJECT TILT
+==========================================================*/
+
+.project {
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+    transition: transform .25s ease;
+
+}
+/*==========================================================
+PROJECT GLOW
+==========================================================*/
+
+.project{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.project::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    left:calc(var(--x) - 130px);
+
+    top:calc(var(--y) - 130px);
+
+    background:radial-gradient(
+
+        rgba(0,0,0,.04),
+
+        transparent 70%
+
+    );
+
+    opacity:0;
+
+    transition:opacity .35s;
+
+    pointer-events:none;
+
+}
+
+.project:hover::before{
+
+    opacity:1;
+
+}
+
+
+/*==========================================================
+IMAGE REVEAL
+==========================================================*/
+
+.project-image img{
+
+    opacity:0;
+
+    transform:translateY(40px) scale(.96);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.project-image img.visible{
+
+    opacity:1;
+
+    transform:translateY(0) scale(1);
+
+}

@@ -1,62 +1,152 @@
 /*==========================================================
+VXPLAY
 NAVBAR.JS
 ==========================================================*/
 
-const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".nav-links");
-const header = document.querySelector(".header");
+document.addEventListener("DOMContentLoaded",()=>{
 
-if(menuButton){
+    const header=document.querySelector(".header");
+    const menu=document.querySelector(".menu");
+    const navbar=document.querySelector(".navbar");
 
-    menuButton.addEventListener("click",()=>{
+    if(!header || !menu || !navbar) return;
 
-        menuButton.classList.toggle("active");
+    /*======================================================
+    MENU
+    ======================================================*/
 
-        navigation.classList.toggle("active");
+    menu.addEventListener("click",()=>{
 
+        menu.classList.toggle("active");
+        navbar.classList.toggle("active");
         document.body.classList.toggle("menu-open");
 
     });
 
-}
+    /*======================================================
+    CLOSE MENU LINKS
+    ======================================================*/
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
+    navbar.querySelectorAll("a").forEach(link=>{
 
-    link.addEventListener("click",()=>{
-
-        navigation.classList.remove("active");
-
-        menuButton.classList.remove("active");
-
-        document.body.classList.remove("menu-open");
+        link.addEventListener("click",closeMenu);
 
     });
 
-});
+    /*======================================================
+    CLOSE CLICK OUTSIDE
+    ======================================================*/
 
-window.addEventListener("resize",()=>{
+    document.addEventListener("click",(e)=>{
 
-    if(window.innerWidth>768){
+        if(
 
-        navigation.classList.remove("active");
+            navbar.classList.contains("active") &&
 
-        menuButton.classList.remove("active");
+            !navbar.contains(e.target) &&
 
-        document.body.classList.remove("menu-open");
+            !menu.contains(e.target)
+
+        ){
+
+            closeMenu();
+
+        }
+
+    });
+
+    /*======================================================
+    ESC KEY
+    ======================================================*/
+
+    document.addEventListener("keydown",(e)=>{
+
+        if(e.key==="Escape"){
+
+            closeMenu();
+
+        }
+
+    });
+
+    /*======================================================
+    HEADER SCROLL
+    ======================================================*/
+
+    window.addEventListener("scroll",()=>{
+
+        if(window.scrollY>40){
+
+            header.classList.add("scrolled");
+
+        }else{
+
+            header.classList.remove("scrolled");
+
+        }
+
+    });
+
+    /*======================================================
+    ACTIVE SECTION
+    ======================================================*/
+
+    const sections=document.querySelectorAll("section[id]");
+
+    function updateMenu(){
+
+        let current="";
+
+        sections.forEach(section=>{
+
+            const top=section.offsetTop-140;
+            const height=section.offsetHeight;
+
+            if(window.scrollY>=top){
+
+                current=section.id;
+
+            }
+
+        });
+
+        navbar.querySelectorAll("a").forEach(link=>{
+
+            link.classList.remove("active");
+
+            if(link.getAttribute("href")==="#"+current){
+
+                link.classList.add("active");
+
+            }
+
+        });
 
     }
 
-});
+    window.addEventListener("scroll",updateMenu);
 
-window.addEventListener("scroll",()=>{
+    updateMenu();
 
-    if(window.scrollY>20){
+    /*======================================================
+    RESIZE
+    ======================================================*/
 
-        header.classList.add("scrolled");
+    window.addEventListener("resize",()=>{
 
-    }else{
+        if(window.innerWidth>900){
 
-        header.classList.remove("scrolled");
+            closeMenu();
+
+        }
+
+    });
+
+    function closeMenu(){
+
+        menu.classList.remove("active");
+        navbar.classList.remove("active");
+        document.body.classList.remove("menu-open");
 
     }
 

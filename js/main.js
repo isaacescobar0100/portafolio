@@ -1,37 +1,40 @@
 /*==========================================================
-ISAAC ESCOBAR PORTFOLIO
+VXPLAY SOFTWARE STUDIO
 main.js
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    navbarScroll();
+    initHeader();
 
-    revealElements();
+    initReveal();
 
-    smoothScroll();
+    initSmoothScroll();
 
-    activeLinks();
+    initActiveMenu();
 
-    backToTop();
+    initMobileMenu();
 
 });
 
+
 /*==========================================================
-NAVBAR
+HEADER SCROLL
 ==========================================================*/
 
-function navbarScroll(){
+function initHeader() {
 
     const header = document.querySelector(".header");
 
-    window.addEventListener("scroll",()=>{
+    if (!header) return;
 
-        if(window.scrollY > 40){
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 40) {
 
             header.classList.add("scrolled");
 
-        }else{
+        } else {
 
             header.classList.remove("scrolled");
 
@@ -41,21 +44,24 @@ function navbarScroll(){
 
 }
 
+
 /*==========================================================
 SCROLL REVEAL
 ==========================================================*/
 
-function revealElements(){
+function initReveal() {
 
     const elements = document.querySelectorAll(
-        ".reveal,.reveal-left,.reveal-right,.reveal-scale"
+
+        ".section-heading,.project,.service-card,.step,.about-image,.about-content,.tech-item"
+
     );
 
-    const observer = new IntersectionObserver(entries=>{
+    const observer = new IntersectionObserver((entries) => {
 
-        entries.forEach(entry=>{
+        entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+            if (entry.isIntersecting) {
 
                 entry.target.classList.add("active");
 
@@ -63,39 +69,46 @@ function revealElements(){
 
         });
 
-    },{
+    }, {
 
-        threshold:.15
+        threshold: .15
 
     });
 
-    elements.forEach(el=>observer.observe(el));
+    elements.forEach(el => {
+
+        el.classList.add("reveal");
+
+        observer.observe(el);
+
+    });
 
 }
+
 
 /*==========================================================
 SMOOTH SCROLL
 ==========================================================*/
 
-function smoothScroll(){
+function initSmoothScroll() {
 
-    const links=document.querySelectorAll('a[href^="#"]');
+    const links = document.querySelectorAll('a[href^="#"]');
 
-    links.forEach(link=>{
+    links.forEach(link => {
 
-        link.addEventListener("click",e=>{
+        link.addEventListener("click", (e) => {
 
-            const target=document.querySelector(link.getAttribute("href"));
+            const target = document.querySelector(link.getAttribute("href"));
 
-            if(!target) return;
+            if (!target) return;
 
             e.preventDefault();
 
             window.scrollTo({
 
-                top:target.offsetTop-70,
+                top: target.offsetTop - 80,
 
-                behavior:"smooth"
+                behavior: "smooth"
 
             });
 
@@ -104,40 +117,39 @@ function smoothScroll(){
     });
 
 }
-
 /*==========================================================
 ACTIVE MENU
 ==========================================================*/
 
-function activeLinks(){
+function initActiveMenu() {
 
-    const sections=document.querySelectorAll("section");
+    const sections = document.querySelectorAll("section[id]");
 
-    const links=document.querySelectorAll(".nav-links a");
+    const links = document.querySelectorAll(".navbar a");
 
-    window.addEventListener("scroll",()=>{
+    window.addEventListener("scroll", () => {
 
-        let current="";
+        let current = "";
 
-        sections.forEach(section=>{
+        sections.forEach(section => {
 
-            const top=section.offsetTop-120;
+            const top = section.offsetTop - 120;
 
-            const height=section.clientHeight;
+            const height = section.offsetHeight;
 
-            if(pageYOffset>=top){
+            if (window.scrollY >= top && window.scrollY < top + height) {
 
-                current=section.getAttribute("id");
+                current = section.getAttribute("id");
 
             }
 
         });
 
-        links.forEach(link=>{
+        links.forEach(link => {
 
             link.classList.remove("active");
 
-            if(link.getAttribute("href")==="#"+current){
+            if (link.getAttribute("href") === "#" + current) {
 
                 link.classList.add("active");
 
@@ -149,37 +161,34 @@ function activeLinks(){
 
 }
 
+
 /*==========================================================
-BACK TO TOP
+MOBILE MENU
 ==========================================================*/
 
-function backToTop(){
+function initMobileMenu() {
 
-    const button=document.querySelector(".back-top");
+    const menu = document.querySelector(".menu");
 
-    if(!button) return;
+    const navbar = document.querySelector(".navbar");
 
-    window.addEventListener("scroll",()=>{
+    if (!menu || !navbar) return;
 
-        if(window.scrollY>500){
+    menu.addEventListener("click", () => {
 
-            button.classList.add("show");
+        navbar.classList.toggle("show");
 
-        }else{
-
-            button.classList.remove("show");
-
-        }
+        menu.classList.toggle("active");
 
     });
 
-    button.addEventListener("click",()=>{
+    document.querySelectorAll(".navbar a").forEach(link => {
 
-        window.scrollTo({
+        link.addEventListener("click", () => {
 
-            top:0,
+            navbar.classList.remove("show");
 
-            behavior:"smooth"
+            menu.classList.remove("active");
 
         });
 
@@ -187,122 +196,92 @@ function backToTop(){
 
 }
 
+
 /*==========================================================
-TYPEWRITER
+PROJECT PARALLAX
 ==========================================================*/
 
-const title=document.querySelector(".typing");
+function initProjectParallax() {
 
-if(title){
+    const images = document.querySelectorAll(".project-image img");
 
-    const words=[
+    if (images.length === 0) return;
 
-        "Full Stack Developer",
+    window.addEventListener("scroll", () => {
 
-        "Frontend Developer",
+        const scroll = window.scrollY;
 
-        "Backend Developer"
+        images.forEach(img => {
 
-    ];
+            const rect = img.getBoundingClientRect();
 
-    let wordIndex=0;
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
 
-    let charIndex=0;
+                const speed = (scroll - rect.top) * 0.015;
 
-    let deleting=false;
-
-    function type(){
-
-        const current=words[wordIndex];
-
-        if(!deleting){
-
-            title.textContent=current.substring(0,charIndex++);
-
-            if(charIndex>current.length){
-
-                deleting=true;
-
-                setTimeout(type,1800);
-
-                return;
+                img.style.transform = `translateY(${speed}px) scale(1.02)`;
 
             }
 
-        }else{
+        });
 
-            title.textContent=current.substring(0,charIndex--);
-
-            if(charIndex===0){
-
-                deleting=false;
-
-                wordIndex=(wordIndex+1)%words.length;
-
-            }
-
-        }
-
-        setTimeout(type,deleting?40:90);
-
-    }
-
-    type();
+    });
 
 }
 
+initProjectParallax();
+
+
 /*==========================================================
-PROJECT IMAGE PARALLAX
+TECH ITEMS HOVER
 ==========================================================*/
 
-const projects=document.querySelectorAll(".project-image img");
+document.querySelectorAll(".tech-item").forEach(item => {
 
-window.addEventListener("scroll",()=>{
+    item.addEventListener("mouseenter", () => {
 
-    projects.forEach(img=>{
+        item.style.transform = "translateY(-6px)";
 
-        const speed=window.pageYOffset*.03;
+    });
 
-        img.style.transform=`translateY(${speed}px) scale(1.02)`;
+    item.addEventListener("mouseleave", () => {
+
+        item.style.transform = "translateY(0px)";
 
     });
 
 });
 
+
+/*==========================================================
+PROJECT BUTTON EFFECT
+==========================================================*/
+
+document.querySelectorAll(".project-buttons a").forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+
+        button.style.transform = "translateY(-4px)";
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.transform = "translateY(0px)";
+
+    });
+
+});
+
+
 /*==========================================================
 CURRENT YEAR
 ==========================================================*/
 
-const year=document.querySelector("#year");
+const year = document.querySelector("#year");
 
-if(year){
+if (year) {
 
-    year.textContent=new Date().getFullYear();
+    year.textContent = new Date().getFullYear();
 
 }
-
-/*==========================================================
-PRELOADER
-==========================================================*/
-
-window.addEventListener("load",()=>{
-
-    const loader=document.querySelector(".loader");
-
-    if(loader){
-
-        loader.classList.add("hide");
-
-        setTimeout(()=>{
-
-            loader.remove();
-
-        },700);
-
-    }
-
-});
-
-/*==========================================================
-END
-==========================================================*/

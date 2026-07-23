@@ -1,77 +1,125 @@
 /*==========================================================
+VXPLAY
 CURSOR.JS
 ==========================================================*/
 
-const cursor = document.createElement("div");
+document.addEventListener("DOMContentLoaded", () => {
 
-cursor.className = "cursor";
+    // No mostrar cursor personalizado en dispositivos táctiles
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
-document.body.appendChild(cursor);
+    /*======================================================
+    CREATE CURSOR
+    ======================================================*/
 
-let mouseX = 0;
-let mouseY = 0;
+    const cursor = document.createElement("div");
+    cursor.className = "cursor";
 
-let currentX = 0;
-let currentY = 0;
+    document.body.appendChild(cursor);
 
-document.addEventListener("mousemove", e => {
+    /*======================================================
+    VARIABLES
+    ======================================================*/
 
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
-});
+    let currentX = mouseX;
+    let currentY = mouseY;
 
-function animateCursor(){
+    /*======================================================
+    MOUSE POSITION
+    ======================================================*/
 
-    currentX += (mouseX - currentX) * .18;
-    currentY += (mouseY - currentY) * .18;
+    document.addEventListener("mousemove", (e) => {
 
-    cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
 
-    requestAnimationFrame(animateCursor);
-
-}
-
-animateCursor();
-
-/*==============================
-HOVER EFFECT
-==============================*/
-
-const hoverElements = document.querySelectorAll(
-
-    "a,button,.project,.skill-card,img"
-
-);
-
-hoverElements.forEach(item=>{
-
-    item.addEventListener("mouseenter",()=>{
-
-        cursor.classList.add("cursor-hover");
+        cursor.style.opacity = "1";
 
     });
 
-    item.addEventListener("mouseleave",()=>{
+    /*======================================================
+    ANIMATION
+    ======================================================*/
 
-        cursor.classList.remove("cursor-hover");
+    function animate() {
+
+        currentX += (mouseX - currentX) * 0.14;
+        currentY += (mouseY - currentY) * 0.14;
+
+        cursor.style.transform =
+            `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+
+        requestAnimationFrame(animate);
+
+    }
+
+    animate();
+
+    /*======================================================
+    HOVER EFFECT
+    ======================================================*/
+
+    document.addEventListener("mouseover", (e) => {
+
+        if (
+            e.target.closest(
+                "a,button,.btn-primary,.btn-secondary,.project,.service-card,.tech-item,img"
+            )
+        ) {
+
+            cursor.classList.add("cursor-hover");
+
+        }
 
     });
 
-});
+    document.addEventListener("mouseout", (e) => {
 
-/*==============================
-CLICK
-==============================*/
+        if (
+            e.target.closest(
+                "a,button,.btn-primary,.btn-secondary,.project,.service-card,.tech-item,img"
+            )
+        ) {
 
-document.addEventListener("mousedown",()=>{
+            cursor.classList.remove("cursor-hover");
 
-    cursor.classList.add("cursor-click");
+        }
 
-});
+    });
 
-document.addEventListener("mouseup",()=>{
+    /*======================================================
+    CLICK
+    ======================================================*/
 
-    cursor.classList.remove("cursor-click");
+    document.addEventListener("mousedown", () => {
+
+        cursor.classList.add("cursor-click");
+
+    });
+
+    document.addEventListener("mouseup", () => {
+
+        cursor.classList.remove("cursor-click");
+
+    });
+
+    /*======================================================
+    WINDOW LEAVE
+    ======================================================*/
+
+    document.addEventListener("mouseleave", () => {
+
+        cursor.style.opacity = "0";
+
+    });
+
+    document.addEventListener("mouseenter", () => {
+
+        cursor.style.opacity = "1";
+
+    });
 
 });

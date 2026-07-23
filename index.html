@@ -5,148 +5,95 @@
 
     <meta charset="UTF-8">
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Isaac Escobar | Full Stack Developer</title>
+    <title>
+        VXPLAY | Software Studio
+    </title>
 
     <meta name="description"
-        content="Portafolio profesional de Isaac Escobar. Desarrollo aplicaciones web modernas, rápidas y escalables.">
+        content="Desarrollamos plataformas SaaS, ecommerce y software empresarial moderno. Fundado por Isaac Escobar, Full Stack Developer.">
 
-    <meta name="keywords"
-        content="Full Stack Developer, Frontend, Backend, JavaScript, Laravel, React">
+    <meta name="keywords" content="Software Studio, SaaS, Ecommerce, Desarrollo Web, Laravel, React, JavaScript">
 
-    <meta name="author"
-        content="Isaac Escobar">
+    <meta name="author" content="Isaac Escobar">
 
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet"
-        href="css/style.css">
-
-    <link rel="stylesheet"
-        href="css/responsive.css">
-
-    <link rel="stylesheet"
-        href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/preloader.css">
 
 </head>
 
-<body>
+<body class="loading">
 
-    <!--==============================
-    LOADER
-    ==============================-->
-
-    <div class="loader">
-
-        <div class="loader-line"></div>
-
-    </div>
-
-    <!--==============================
-    CURSOR
-    ==============================-->
-
-    <div class="cursor"></div>
-
-    <!--==============================
-    BACK TO TOP
-    ==============================-->
-
-    <button class="back-top">
-
-        ↑
-
-    </button>
-
-    <!--==============================
-    HEADER
-    ==============================-->
+    <!--====================================
+                HEADER
+    =====================================-->
 
     <header class="header">
 
         <div class="container">
 
-            <a href="#home"
-                class="logo">
+            <a href="#home" class="logo">
 
-                Isaac<span>.</span>
+                VX<span>PLAY</span>
 
             </a>
 
-            <nav>
+            <nav class="navbar">
 
-                <ul class="nav-links">
+                <a href="#about">
 
-                    <li>
+                    Nosotros
 
-                        <a href="#home">
+                </a>
 
-                            Inicio
+                <a href="#services">
 
-                        </a>
+                    Servicios
 
-                    </li>
+                </a>
 
-                    <li>
+                <a href="#projects">
 
-                        <a href="#about">
+                    Proyectos
 
-                            Sobre mí
+                </a>
 
-                        </a>
+                <a href="#process">
 
-                    </li>
+                    Proceso
 
-                    <li>
+                </a>
 
-                        <a href="#projects">
+                <a href="#contact">
 
-                            Proyectos
+                    Contacto
 
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#skills">
-
-                            Skills
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#contact">
-
-                            Contacto
-
-                        </a>
-
-                    </li>
-
-                </ul>
+                </a>
 
             </nav>
 
-            <button class="menu-toggle">
+            <a href="#contact" class="btn-nav">
 
-                <span></span>
+                Hablemos
 
-                <span></span>
+            </a>
 
-                <span></span>
+            <button class="menu">
+
+                ☰
 
             </button>
 
@@ -154,61 +101,67 @@
 
     </header>
 
-    <!--==============================
-    HERO
-    ==============================-->
+    <!--====================================
+                HERO
+    =====================================-->
 
-    <section id="home"
-        class="hero">
+    <section id="home" class="hero">
 
-        <div class="container hero-content">
+        <div class="container hero-grid">
 
-            <div class="hero-text">
+            <div class="hero-content">
 
-                <small>
+                <span class="hero-tag">
 
-                    FULL STACK DEVELOPER
+                    SOFTWARE STUDIO
 
-                </small>
+                </span>
 
                 <h1>
 
-                    Diseño y desarrollo experiencias digitales
-                    elegantes, rápidas y escalables.
+                    Construimos software
+                    que impulsa negocios.
 
                 </h1>
 
-                <h2 class="typing">
-
-                    Full Stack Developer
-
-                </h2>
-
                 <p>
 
-                    Soy Isaac Escobar, desarrollador Full Stack especializado
-                    en crear aplicaciones web modernas con una arquitectura
-                    sólida, interfaces intuitivas y un fuerte enfoque en
-                    rendimiento, accesibilidad y experiencia de usuario.
+                    En VXPLAY desarrollamos plataformas SaaS,
+                    ecommerce, dashboards y aplicaciones web
+                    modernas para empresas que buscan crecer
+                    mediante tecnología.
 
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a href="#projects"
-                        class="btn btn-primary">
+                    <a href="#projects" class="btn-primary">
 
                         Ver proyectos
 
                     </a>
 
-                    <a href="assets/cv.pdf"
-                        class="btn btn-secondary"
-                        download>
+                    <a href="#contact" class="btn-secondary">
 
-                        Descargar CV
+                        Solicitar cotización
 
                     </a>
+
+                </div>
+
+                <div class="hero-stack">
+
+                    <span>Laravel</span>
+
+                    <span>React</span>
+
+                    <span>JavaScript</span>
+
+                    <span>PHP</span>
+
+                    <span>MySQL</span>
+
+                    <span>Docker</span>
 
                 </div>
 
@@ -216,8 +169,7 @@
 
             <div class="hero-image">
 
-                <img src="assets/hero.jpeg"
-                    alt="Isaac Escobar">
+                <img src="assets/hero.jpeg" alt="Isaac Escobar">
 
             </div>
 
@@ -225,237 +177,75 @@
 
     </section>
 
-    <!--==============================
-    ABOUT
-    ==============================-->
+    <!--====================================
+                TRUST
+    =====================================-->
 
-    <section id="about"
-        class="about reveal">
-
-        <div class="container">
-
-            <div class="about-content">
-
-                <div class="about-text">
-
-                    <small>
-
-                        SOBRE MÍ
-
-                    </small>
-
-                    <h2>
-
-                        Construyo productos digitales
-                        pensando primero en las personas.
-
-                    </h2>
-
-                    <p>
-
-                        Mi enfoque combina desarrollo frontend,
-                        backend y diseño de interfaces para crear
-                        aplicaciones rápidas, intuitivas y fáciles
-                        de mantener.
-
-                    </p>
-
-                    <p>
-
-                        Me apasiona escribir código limpio,
-                        optimizar el rendimiento y transformar
-                        ideas en soluciones reales.
-
-                    </p>
-
-                    <div class="about-info">
-
-                        <article>
-
-                            <h3>
-
-                                Experiencia
-
-                            </h3>
-
-                            <span>
-
-                                Full Stack Developer
-
-                            </span>
-
-                        </article>
-
-                        <article>
-
-                            <h3>
-
-                                Ubicación
-
-                            </h3>
-
-                            <span>
-
-                                Colombia
-
-                            </span>
-
-                        </article>
-
-                        <article>
-
-                            <h3>
-
-                                Especialidad
-
-                            </h3>
-
-                            <span>
-
-                                Aplicaciones Web
-
-                            </span>
-
-                        </article>
-
-                        <article>
-
-                            <h3>
-
-                                Disponibilidad
-
-                            </h3>
-
-                            <span>
-
-                                Freelance · Remoto
-
-                            </span>
-
-                        </article>
-
-                    </div>
-
-                </div>
-
-                <div class="about-image">
-
-                    <img src="assets/img/about.jpg"
-                        alt="Sobre mí">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!--==============================
-    SKILLS
-    ==============================-->
-
-    <section id="skills" class="skills reveal">
+    <section class="trust">
 
         <div class="container">
 
-            <div class="skills-header">
-
-                <small>
-                    TECNOLOGÍAS
-                </small>
+            <div class="trust-item">
 
                 <h2>
-                    Herramientas con las que construyo productos digitales.
+
+                    +6
+
                 </h2>
 
                 <p>
-                    Selecciono tecnologías pensando en escalabilidad,
-                    mantenibilidad y rendimiento.
+
+                    Productos desarrollados
+
                 </p>
 
             </div>
 
-            <div class="skills-grid">
+            <div class="trust-item">
 
-                <article class="skill-card">
+                <h2>
 
-                    <h3>Frontend</h3>
+                    SaaS
 
-                    <ul>
+                </h2>
 
-                        <li>HTML5</li>
+                <p>
 
-                        <li>CSS3</li>
+                    Arquitecturas escalables
 
-                        <li>JavaScript ES6+</li>
+                </p>
 
-                        <li>TypeScript</li>
+            </div>
 
-                        <li>React</li>
+            <div class="trust-item">
 
-                        <li>Next.js</li>
+                <h2>
 
-                    </ul>
+                    Full Stack
 
-                </article>
+                </h2>
 
-                <article class="skill-card">
+                <p>
 
-                    <h3>Backend</h3>
+                    Desarrollo End-to-End
 
-                    <ul>
+                </p>
 
-                        <li>Node.js</li>
+            </div>
 
-                        <li>Express</li>
+            <div class="trust-item">
 
-                        <li>Laravel</li>
+                <h2>
 
-                        <li>PHP</li>
+                    Colombia
 
-                        <li>REST API</li>
+                </h2>
 
-                    </ul>
+                <p>
 
-                </article>
+                    Disponible para proyectos remotos
 
-                <article class="skill-card">
-
-                    <h3>Base de Datos</h3>
-
-                    <ul>
-
-                        <li>MySQL</li>
-
-                        <li>PostgreSQL</li>
-
-                        <li>MongoDB</li>
-
-                        <li>Firebase</li>
-
-                    </ul>
-
-                </article>
-
-                <article class="skill-card">
-
-                    <h3>Herramientas</h3>
-
-                    <ul>
-
-                        <li>Git</li>
-
-                        <li>GitHub</li>
-
-                        <li>Docker</li>
-
-                        <li>Figma</li>
-
-                        <li>VS Code</li>
-
-                    </ul>
-
-                </article>
+                </p>
 
             </div>
 
@@ -463,99 +253,273 @@
 
     </section>
 
-    <!--==============================
-    PROJECTS
-    ==============================-->
+    <!--====================================
+                ABOUT
+    =====================================-->
 
-    <section id="projects" class="projects reveal">
+    <section id="about" class="about">
 
-        <div class="container">
+        <div class="container about-grid">
 
-            <div class="projects-header">
+            <div class="about-image">
 
-                <div>
-
-                    <small>
-                        PROYECTOS
-                    </small>
-
-                    <h2>
-
-                        Algunos trabajos seleccionados.
-
-                    </h2>
-
-                </div>
-
-                <p>
-
-                    Cada proyecto está desarrollado con un enfoque
-                    en experiencia de usuario, rendimiento y
-                    arquitectura escalable.
-
-                </p>
+                <img src="assets/about.jpeg" alt="Isaac Escobar">
 
             </div>
 
-            <!-- Proyecto 1 -->
+            <div class="about-content">
 
-            <article class="project">
+                <span>
 
-                <div class="project-image">
+                    SOBRE VXPLAY
 
-                    <img
-                        src="assets/img/project-1.jpg"
-                        alt="Proyecto Ecommerce">
+                </span>
 
-                </div>
+                <h2>
 
-                <div class="project-content">
+                    Más que escribir código,
+                    construimos productos digitales.
 
-                    <small>
+                </h2>
 
-                        WEB APPLICATION
+                <p>
 
-                    </small>
+                    VXPLAY nace con el objetivo de ayudar
+                    empresas y emprendedores a transformar
+                    ideas en plataformas escalables.
+
+                </p>
+
+                <p>
+
+                    Cada proyecto es diseñado pensando
+                    en rendimiento, experiencia de usuario,
+                    mantenibilidad y crecimiento futuro.
+
+                </p>
+
+                <div class="about-founder">
 
                     <h3>
 
-                        Ecommerce Fashion
+                        Fundado por Isaac Escobar
 
                     </h3>
 
                     <p>
 
-                        Plataforma completa de comercio electrónico
-                        con autenticación, carrito de compras,
-                        administración, pagos y dashboard.
+                        Full Stack Developer especializado
+                        en aplicaciones web modernas.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!--====================================
+                SERVICES
+    =====================================-->
+
+    <section id="services" class="services">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>NUESTROS SERVICIOS</span>
+
+                <h2>
+                    Desarrollamos soluciones
+                    adaptadas a cada negocio.
+                </h2>
+
+                <p>
+                    Creamos plataformas modernas, rápidas y escalables
+                    utilizando tecnologías actuales y buenas prácticas
+                    de desarrollo.
+                </p>
+
+            </div>
+
+            <div class="services-grid">
+
+                <article class="service-card">
+
+                    <span>01</span>
+
+                    <h3>
+                        Plataformas SaaS
+                    </h3>
+
+                    <p>
+                        Sistemas web escalables con autenticación,
+                        suscripciones, panel administrativo y
+                        arquitectura preparada para crecer.
+                    </p>
+
+                </article>
+
+                <article class="service-card">
+
+                    <span>02</span>
+
+                    <h3>
+                        Ecommerce
+                    </h3>
+
+                    <p>
+                        Tiendas online modernas con carrito,
+                        pagos, inventario,
+                        administración y optimización SEO.
+                    </p>
+
+                </article>
+
+                <article class="service-card">
+
+                    <span>03</span>
+
+                    <h3>
+                        Software Empresarial
+                    </h3>
+
+                    <p>
+                        Automatización de procesos,
+                        dashboards, CRM,
+                        reportes y sistemas internos.
+                    </p>
+
+                </article>
+
+                <article class="service-card">
+
+                    <span>04</span>
+
+                    <h3>
+                        Landing Pages
+                    </h3>
+
+                    <p>
+                        Sitios corporativos optimizados
+                        para captar clientes
+                        y mejorar la presencia digital.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--====================================
+            FEATURED PROJECTS
+    =====================================-->
+
+    <section id="projects" class="projects">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>CASOS DE ÉXITO</span>
+
+                <h2>
+                    Algunos proyectos desarrollados.
+                </h2>
+
+                <p>
+
+                    Cada proyecto representa un reto diferente,
+                    desde plataformas SaaS hasta ecommerce y
+                    software empresarial.
+
+                </p>
+
+            </div>
+
+
+
+            <!--====================================
+                    FESTIVA
+            =====================================-->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <img src="assets/venua1.PNG" alt="Festiva Event Management SaaS">
+
+                </div>
+
+                <div class="project-content">
+
+                    <span>
+
+                        SaaS Platform
+
+                    </span>
+
+                    <h2>
+
+                        Festiva
+
+                    </h2>
+
+                    <h3>
+
+                        Event Management Platform
+
+                    </h3>
+
+                    <p>
+
+                        Plataforma SaaS desarrollada para la gestión
+                        integral de eventos y venues.
+
+                        Permite administrar reservas,
+                        cotizaciones,
+                        clientes,
+                        proveedores,
+                        calendario,
+                        pagos,
+                        facturación
+                        y reportes desde un único panel.
 
                     </p>
 
                     <div class="project-stack">
 
-                        <span>HTML</span>
-
-                        <span>CSS</span>
+                        <span>Laravel</span>
 
                         <span>JavaScript</span>
 
-                        <span>Laravel</span>
-
                         <span>MySQL</span>
+
+                        <span>Chart.js</span>
+
+                        <span>Responsive</span>
 
                     </div>
 
-                    <div class="project-links">
+                    <div class="project-buttons">
 
                         <a href="#">
 
-                            Ver Proyecto →
+                            Ver Demo
 
                         </a>
 
                         <a href="#">
 
-                            GitHub →
+                            GitHub
 
                         </a>
 
@@ -565,64 +529,384 @@
 
             </article>
 
-            <!-- Proyecto 2 -->
 
-            <article class="project">
+
+            <!--====================================
+                    ECOMMERCE
+            =====================================-->
+
+            <article class="project reverse">
 
                 <div class="project-image">
 
-                    <img
-                        src="assets/img/project-2.jpg"
-                        alt="Dashboard">
+                    <img src="assets/ecomerce.PNG" alt="Modern Ecommerce">
 
                 </div>
 
                 <div class="project-content">
 
-                    <small>
+                    <span>
 
-                        DASHBOARD
+                        Ecommerce
 
-                    </small>
+                    </span>
+
+                    <h2>
+
+                        Modern Ecommerce
+
+                    </h2>
 
                     <h3>
 
-                        Sistema Administrativo
+                        Plataforma de Comercio Electrónico
 
                     </h3>
 
                     <p>
 
-                        Dashboard con autenticación,
-                        gestión de usuarios,
-                        reportes y estadísticas
+                        Solución ecommerce preparada para múltiples
+                        tipos de negocios con autenticación,
+                        catálogo,
+                        carrito de compras,
+                        inventario,
+                        pedidos,
+                        panel administrativo
+                        y experiencia responsive.
+
+                    </p>
+
+                    <div class="project-stack">
+
+                        <span>Laravel</span>
+
+                        <span>JavaScript</span>
+
+                        <span>MySQL</span>
+
+                        <span>HTML</span>
+
+                        <span>CSS</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#">
+
+                            Ver Demo
+
+                        </a>
+
+                        <a href="#">
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+            <!--====================================
+                    ENTERPRISE DASHBOARD
+            =====================================-->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <img src="assets/paneladmin.PNG" alt="Enterprise Dashboard">
+
+                </div>
+
+                <div class="project-content">
+
+                    <span>
+
+                        Business Software
+
+                    </span>
+
+                    <h2>
+
+                        Enterprise Dashboard
+
+                    </h2>
+
+                    <h3>
+
+                        Panel Administrativo Inteligente
+
+                    </h3>
+
+                    <p>
+
+                        Dashboard desarrollado para centralizar
+                        la administración del negocio desde un único
+                        lugar. Incluye gestión de usuarios,
+                        estadísticas, reportes, clientes,
+                        ventas, productos e indicadores
                         en tiempo real.
 
                     </p>
 
                     <div class="project-stack">
 
-                        <span>React</span>
-
                         <span>Laravel</span>
 
-                        <span>REST API</span>
+                        <span>JavaScript</span>
+
+                        <span>MySQL</span>
 
                         <span>Chart.js</span>
 
+                        <span>REST API</span>
+
                     </div>
 
-                    <div class="project-links">
+                    <div class="project-buttons">
 
                         <a href="#">
 
-                            Ver Proyecto →
+                            Ver Demo
 
                         </a>
 
                         <a href="#">
 
-                            GitHub →
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!--====================================
+                    LANDING PAGE
+            =====================================-->
+
+            <article class="project reverse">
+
+                <div class="project-image">
+
+                    <img src="assets/landing.PNG" alt="Corporate Landing Page">
+
+                </div>
+
+                <div class="project-content">
+
+                    <span>
+
+                        Corporate Website
+
+                    </span>
+
+                    <h2>
+
+                        Business Landing Page
+
+                    </h2>
+
+                    <h3>
+
+                        Diseño Web Orientado a Conversión
+
+                    </h3>
+
+                    <p>
+
+                        Landing page desarrollada con enfoque en
+                        rendimiento, SEO y experiencia de usuario.
+                        Diseñada para captar clientes, comunicar el
+                        valor del negocio y mejorar la presencia
+                        digital de la empresa.
+
+                    </p>
+
+                    <div class="project-stack">
+
+                        <span>HTML5</span>
+
+                        <span>CSS3</span>
+
+                        <span>JavaScript</span>
+
+                        <span>SEO</span>
+
+                        <span>Responsive</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#">
+
+                            Ver Demo
+
+                        </a>
+
+                        <a href="#">
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!--====================================
+                    SISTEMA DE MATRÍCULAS
+            =====================================-->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <img src="assets/matriculas.PNG" alt="Sistema de Matrículas">
+
+                </div>
+
+                <div class="project-content">
+
+                    <span>
+
+                        Education Software
+
+                    </span>
+
+                    <h2>
+
+                        Enrollment Management System
+
+                    </h2>
+
+                    <h3>
+
+                        Plataforma de Gestión Académica
+
+                    </h3>
+
+                    <p>
+
+                        Sistema web diseñado para administrar
+                        procesos de matrícula, estudiantes,
+                        programas académicos, pagos,
+                        horarios y gestión administrativa
+                        de instituciones educativas.
+
+                    </p>
+
+                    <div class="project-stack">
+
+                        <span>Laravel</span>
+
+                        <span>PHP</span>
+
+                        <span>MySQL</span>
+
+                        <span>Bootstrap</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#">
+
+                            Ver Demo
+
+                        </a>
+
+                        <a href="#">
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!--====================================
+                    CASTING PLATFORM
+            =====================================-->
+
+            <article class="project reverse">
+
+                <div class="project-image">
+
+                    <img src="assets/casting.PNG" alt="Casting Platform">
+
+                </div>
+
+                <div class="project-content">
+
+                    <span>
+
+                        Web Platform
+
+                    </span>
+
+                    <h2>
+
+                        Casting Platform
+
+                    </h2>
+
+                    <h3>
+
+                        Gestión de Talentos y Convocatorias
+
+                    </h3>
+
+                    <p>
+
+                        Plataforma web desarrollada para la
+                        administración de convocatorias,
+                        perfiles de talento, postulaciones,
+                        filtros de candidatos y seguimiento
+                        de procesos de selección.
+
+                    </p>
+
+                    <div class="project-stack">
+
+                        <span>Laravel</span>
+
+                        <span>JavaScript</span>
+
+                        <span>MySQL</span>
+
+                        <span>Responsive</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#">
+
+                            Ver Demo
+
+                        </a>
+
+                        <a href="#">
+
+                            GitHub
 
                         </a>
 
@@ -636,330 +920,416 @@
 
     </section>
 
-    <!--==============================
-    EXPERIENCE
-    ==============================-->
 
-    <section class="experience reveal">
+
+    <!--====================================
+                PROCESS
+    =====================================-->
+
+    <section id="process" class="process">
 
         <div class="container">
 
-            <small>
+            <div class="section-heading">
 
-                EXPERIENCIA
+                <span>
 
-            </small>
+                    PROCESO DE TRABAJO
 
-            <h2>
+                </span>
 
-                Mi trayectoria.
+                <h2>
 
-            </h2>
+                    Una metodología clara para convertir ideas
+                    en productos digitales.
 
-            <div class="timeline">
+                </h2>
 
-                <article class="timeline-item">
+            </div>
 
-                    <span>
+            <div class="process-grid">
 
-                        2026 - Actualidad
+                <div class="step">
 
-                    </span>
+                    <h2>01</h2>
 
-                    <h3>
-
-                        Full Stack Developer
-
-                    </h3>
+                    <h3>Descubrimiento</h3>
 
                     <p>
-
-                        Desarrollo de aplicaciones web,
-                        plataformas empresariales
-                        y soluciones personalizadas.
-
+                        Analizamos objetivos, necesidades y alcance del proyecto.
                     </p>
 
-                </article>
+                </div>
 
-                <article class="timeline-item">
+                <div class="step">
 
-                    <span>
+                    <h2>02</h2>
 
-                        2025
-
-                    </span>
-
-                    <h3>
-
-                        Frontend Developer
-
-                    </h3>
+                    <h3>Diseño</h3>
 
                     <p>
-
-                        Desarrollo de interfaces modernas,
-                        optimización de rendimiento
-                        y accesibilidad.
-
+                        Definimos arquitectura, experiencia de usuario e interfaz.
                     </p>
 
-                </article>
+                </div>
+
+                <div class="step">
+
+                    <h2>03</h2>
+
+                    <h3>Desarrollo</h3>
+
+                    <p>
+                        Construimos una solución moderna, escalable y mantenible.
+                    </p>
+
+                </div>
+
+                <div class="step">
+
+                    <h2>04</h2>
+
+                    <h3>Entrega</h3>
+
+                    <p>
+                        Publicación, pruebas finales y acompañamiento posterior.
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
     </section>
-        <!--==============================
-    CONTACT
-    ==============================-->
+    <!--====================================
+                TECHNOLOGIES
+    =====================================-->
 
-    <section id="contact" class="contact reveal">
+    <section id="technologies" class="technologies">
 
         <div class="container">
 
-            <div class="contact-wrapper">
+            <div class="section-heading">
 
-                <div class="contact-info">
+                <span>
+                    TECNOLOGÍAS
+                </span>
 
-                    <small>
+                <h2>
 
-                        CONTACTO
+                    Herramientas con las que desarrollamos
+                    soluciones modernas.
 
-                    </small>
-
-                    <h2>
-
-                        ¿Tienes un proyecto en mente?
-
-                    </h2>
-
-                    <p>
-
-                        Estoy disponible para colaborar en proyectos
-                        freelance, desarrollo de productos digitales
-                        o nuevas oportunidades laborales.
-
-                    </p>
-
-                    <div class="contact-list">
-
-                        <div class="contact-item">
-
-                            <span>
-
-                                Correo
-
-                            </span>
-
-                            <a href="mailto:isaac@email.com">
-
-                                isaac@email.com
-
-                            </a>
-
-                        </div>
-
-                        <div class="contact-item">
-
-                            <span>
-
-                                GitHub
-
-                            </span>
-
-                            <a href="#">
-
-                                github.com/isaac
-
-                            </a>
-
-                        </div>
-
-                        <div class="contact-item">
-
-                            <span>
-
-                                LinkedIn
-
-                            </span>
-
-                            <a href="#">
-
-                                linkedin.com/in/isaac
-
-                            </a>
-
-                        </div>
-
-                        <div class="contact-item">
-
-                            <span>
-
-                                Ubicación
-
-                            </span>
-
-                            <a>
-
-                                Colombia
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <form class="contact-form">
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Nombre
-
-                        </label>
-
-                        <input
-                            type="text"
-                            placeholder="Tu nombre"
-                            required>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Correo electrónico
-
-                        </label>
-
-                        <input
-                            type="email"
-                            placeholder="correo@email.com"
-                            required>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Mensaje
-
-                        </label>
-
-                        <textarea
-                            placeholder="Cuéntame sobre tu proyecto..."
-                            required></textarea>
-
-                    </div>
-
-                    <button type="submit">
-
-                        Enviar mensaje
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!--==============================
-    FOOTER
-    ==============================-->
-
-    <footer class="footer">
-
-        <div class="container">
-
-            <div class="footer-top">
-
-                <div>
-
-                    <h2 class="footer-logo">
-
-                        Isaac<span>.</span>
-
-                    </h2>
-
-                    <p>
-
-                        Full Stack Developer
-
-                    </p>
-
-                </div>
-
-                <nav class="footer-nav">
-
-                    <a href="#home">
-
-                        Inicio
-
-                    </a>
-
-                    <a href="#about">
-
-                        Sobre mí
-
-                    </a>
-
-                    <a href="#projects">
-
-                        Proyectos
-
-                    </a>
-
-                    <a href="#contact">
-
-                        Contacto
-
-                    </a>
-
-                </nav>
-
-            </div>
-
-            <div class="footer-bottom">
+                </h2>
 
                 <p>
 
-                    © <span id="year"></span>
-                    Isaac Escobar.
-                    Todos los derechos reservados.
+                    Seleccionamos tecnologías robustas,
+                    escalables y ampliamente utilizadas
+                    para garantizar rendimiento,
+                    seguridad y facilidad de mantenimiento.
 
                 </p>
 
-                <div class="socials">
+            </div>
 
-                    <a href="#" target="_blank">
+            <div class="tech-grid">
 
-                        GitHub
+                <div class="tech-item">HTML5</div>
 
-                    </a>
+                <div class="tech-item">CSS3</div>
 
-                    <a href="#" target="_blank">
+                <div class="tech-item">JavaScript</div>
 
-                        LinkedIn
+                <div class="tech-item">TypeScript</div>
 
-                    </a>
+                <div class="tech-item">PHP</div>
 
-                    <a href="#" target="_blank">
+                <div class="tech-item">Laravel</div>
 
-                        Instagram
+                <div class="tech-item">React</div>
 
-                    </a>
+                <div class="tech-item">Next.js</div>
+
+                <div class="tech-item">Node.js</div>
+
+                <div class="tech-item">Express</div>
+
+                <div class="tech-item">MySQL</div>
+
+                <div class="tech-item">PostgreSQL</div>
+
+                <div class="tech-item">MongoDB</div>
+
+                <div class="tech-item">Git</div>
+
+                <div class="tech-item">GitHub</div>
+
+                <div class="tech-item">Docker</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--====================================
+                CTA
+    =====================================-->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <span>
+
+                ¿Tienes un proyecto?
+
+            </span>
+
+            <h2>
+
+                Construyamos una solución
+                que impulse tu negocio.
+
+            </h2>
+
+            <p>
+
+                Desde plataformas SaaS y ecommerce hasta
+                software empresarial a medida.
+                Estoy listo para ayudarte a convertir
+                tu idea en un producto digital.
+
+            </p>
+
+            <a href="#contact" class="btn-primary">
+
+                Solicitar Cotización
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!--====================================
+                CONTACT
+    =====================================-->
+
+    <section id="contact" class="contact">
+
+        <div class="container contact-grid">
+
+            <div class="contact-info">
+
+                <span>
+
+                    CONTACTO
+
+                </span>
+
+                <h2>
+
+                    Hablemos sobre tu próximo proyecto.
+
+                </h2>
+
+                <p>
+
+                    Si buscas desarrollar una plataforma,
+                    una tienda online o una aplicación web,
+                    estaré encantado de conocer tu idea.
+
+                </p>
+
+                <div class="contact-list">
+
+                    <div>
+
+                        <strong>
+
+                            Email
+
+                        </strong>
+
+                        <p>
+
+                            isaac@example.com
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+
+                            Ubicación
+
+                        </strong>
+
+                        <p>
+
+                            Colombia
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+
+                            Disponibilidad
+
+                        </strong>
+
+                        <p>
+
+                            Remoto • Freelance
+
+                        </p>
+
+                    </div>
 
                 </div>
+
+            </div>
+
+
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Nombre">
+
+                <input type="email" placeholder="Correo electrónico">
+
+                <input type="text" placeholder="Empresa">
+
+                <textarea rows="6" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+
+                <button type="submit" class="btn-primary">
+
+                    Enviar mensaje
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!--====================================
+                FOOTER
+    =====================================-->
+
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <h2>
+
+                    VXPLAY
+
+                </h2>
+
+                <p>
+
+                    Software Studio especializado
+                    en el desarrollo de plataformas
+                    web modernas.
+
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+
+                    Navegación
+
+                </h4>
+
+                <a href="#about">
+
+                    Nosotros
+
+                </a>
+
+                <a href="#services">
+
+                    Servicios
+
+                </a>
+
+                <a href="#projects">
+
+                    Proyectos
+
+                </a>
+
+                <a href="#contact">
+
+                    Contacto
+
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+
+                    Redes
+
+                </h4>
+
+                <a href="https://github.com/isaacescobar0100" target="_blank">
+
+                    GitHub
+
+                </a>
+
+                <a href="#" target="_blank">
+
+                    LinkedIn
+
+                </a>
+
+                <a href="#" target="_blank">
+
+                    Instagram
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="copyright">
+
+            <div class="container">
+
+                © 2026 VXPLAY · Fundado por Isaac Escobar.
+                Todos los derechos reservados.
 
             </div>
 
@@ -967,15 +1337,13 @@
 
     </footer>
 
-    <!--==============================
-    JAVASCRIPT
-    ==============================-->
 
-    <script src="js/navbar.js"></script>
-
-    <script src="js/cursor.js"></script>
 
     <script src="js/main.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/preloader.js"></script>
 
 </body>
 

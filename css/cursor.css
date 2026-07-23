@@ -1,0 +1,162 @@
+/*==========================================================
+VXPLAY CUSTOM CURSOR
+==========================================================*/
+
+html{
+    cursor:none;
+}
+
+body{
+    cursor:none;
+}
+
+a,
+button,
+input,
+textarea,
+select{
+    cursor:none;
+}
+
+
+/*==========================================================
+DOT
+==========================================================*/
+
+.cursor-dot{
+
+    position:fixed;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#111;
+
+    left:0;
+
+    top:0;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:999999;
+
+    transition:
+        transform .15s ease,
+        opacity .25s ease;
+
+    mix-blend-mode:difference;
+
+}
+
+
+/*==========================================================
+RING
+==========================================================*/
+
+.cursor-ring{
+
+    position:fixed;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:50%;
+
+    border:1.5px solid #111;
+
+    left:0;
+
+    top:0;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:999998;
+
+    transition:
+
+        width .28s ease,
+
+        height .28s ease,
+
+        border-color .28s ease,
+
+        opacity .28s ease,
+
+        background .28s ease;
+
+}
+
+
+/*==========================================================
+HOVER
+==========================================================*/
+
+.cursor-hover{
+
+    width:70px !important;
+
+    height:70px !important;
+
+    background:rgba(17,17,17,.06);
+
+}
+
+
+/*==========================================================
+CLICK
+==========================================================*/
+
+.cursor-click{
+
+    width:26px !important;
+
+    height:26px !important;
+
+}
+
+
+/*==========================================================
+HIDDEN
+==========================================================*/
+
+.cursor-hidden{
+
+    opacity:0;
+
+}
+
+
+/*==========================================================
+DISABLE MOBILE
+==========================================================*/
+
+@media(pointer:coarse){
+
+    html{
+
+        cursor:auto;
+
+    }
+
+    body{
+
+        cursor:auto;
+
+    }
+
+    .cursor-dot,
+    .cursor-ring{
+
+        display:none;
+
+    }
+
+}

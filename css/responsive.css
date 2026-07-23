@@ -1,391 +1,601 @@
 /*==========================================================
 RESPONSIVE.CSS
-Autor: Isaac Escobar Portfolio
+VXPLAY SOFTWARE STUDIO
 ==========================================================*/
 
 
-/*==============================
+/*==========================================================
 1400px
-==============================*/
+==========================================================*/
 
-@media (max-width:1400px){
+@media (max-width:1400px) {
 
-    .container{
+    .container {
 
-        width:min(92%,1200px);
+        width: min(94%, 1200px);
 
     }
 
 }
 
 
-/*==============================
+/*==========================================================
 1200px
-==============================*/
+==========================================================*/
 
-@media (max-width:1200px){
+@media (max-width:1200px) {
 
-    .hero-content{
+    section {
 
-        gap:60px;
-
-    }
-
-    .hero h1{
-
-        font-size:4.2rem;
+        padding: 120px 0;
 
     }
 
-    .projects-header{
+    .hero-grid {
 
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:20px;
+        gap: 70px;
 
     }
 
-    .project{
+    .hero h1 {
 
-        gap:40px;
+        font-size: 4.5rem;
+
+    }
+
+    .about-grid {
+
+        grid-template-columns: 420px 1fr;
+
+        gap: 70px;
+
+    }
+
+    .project {
+
+        gap: 60px;
+
+    }
+
+    .contact-grid {
+
+        gap: 60px;
 
     }
 
 }
 
 
-/*==============================
+/*==========================================================
 1024px
-==============================*/
+==========================================================*/
 
-@media (max-width:1024px){
+@media (max-width:1024px) {
 
-    section{
+    .hero {
 
-        padding:100px 0;
+        padding-top: 140px;
 
-    }
-
-    .hero-content{
-
-        grid-template-columns:1fr;
-
-        text-align:center;
+        min-height: auto;
 
     }
 
-    .hero{
+    .hero-grid {
 
-        padding-top:120px;
+        grid-template-columns: 1fr;
 
-    }
-
-    .hero-image{
-
-        order:-1;
-
-        max-width:420px;
-
-        margin:auto;
+        text-align: center;
 
     }
 
-    .hero-buttons{
+    .hero-content {
 
-        justify-content:center;
-
-    }
-
-    .about-content{
-
-        grid-template-columns:1fr;
+        order: 2;
 
     }
 
-    .about-image{
+    .hero-image {
 
-        max-width:450px;
+        order: 1;
 
-        margin:auto;
+        max-width: 420px;
 
-    }
-
-    .skills-grid{
-
-        grid-template-columns:repeat(2,1fr);
+        margin: auto;
 
     }
 
-    .project{
+    .hero p {
 
-        grid-template-columns:1fr;
+        margin-left: auto;
+
+        margin-right: auto;
 
     }
 
-    .contact-wrapper{
+    .hero-buttons {
 
-        grid-template-columns:1fr;
+        justify-content: center;
+
+    }
+
+    .hero-stack {
+
+        justify-content: center;
+
+    }
+
+    .trust .container {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 35px;
+
+    }
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .about-image {
+
+        max-width: 420px;
+
+        margin: auto;
+
+    }
+
+    .about-content p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+    .services-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .project,
+
+    .project.reverse {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .project.reverse .project-image,
+
+    .project.reverse .project-content {
+
+        order: initial;
+
+    }
+
+    .project-content {
+
+        text-align: center;
+
+    }
+
+    .project-content p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+    .project-stack {
+
+        justify-content: center;
+
+    }
+
+    .project-buttons {
+
+        justify-content: center;
+
+    }
+
+    .process-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 45px;
+
+    }
+
+    .footer-grid p {
+
+        margin: auto;
 
     }
 
 }
 
-
-/*==============================
-900px
-==============================*/
-
-@media (max-width:900px){
-
-    h2{
-
-        font-size:2.2rem;
-
-    }
-
-    .hero h1{
-
-        font-size:3.5rem;
-
-    }
-
-    .hero h2{
-
-        font-size:1.2rem;
-
-    }
-
-    .nav-links{
-
-        gap:22px;
-
-    }
-
-}
-
-
-/*==============================
+/*==========================================================
 768px
-==============================*/
+==========================================================*/
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-    .header .container{
+    section {
 
-        height:72px;
-
-    }
-
-    .nav-links{
-
-        display:none;
+        padding: 90px 0;
 
     }
 
-    .hero{
+    .header .container {
 
-        min-height:auto;
-
-    }
-
-    .hero-content{
-
-        gap:50px;
+        height: 78px;
 
     }
 
-    .hero-image{
+    .navbar {
 
-        max-width:340px;
-
-    }
-
-    .hero h1{
-
-        font-size:3rem;
+        display: none;
 
     }
 
-    .hero-buttons{
+    .btn-nav {
 
-        flex-direction:column;
-
-    }
-
-    .btn{
-
-        width:100%;
+        display: none;
 
     }
 
-    .skills-grid{
+    .menu {
 
-        grid-template-columns:1fr;
+        display: flex;
 
-    }
+        align-items: center;
 
-    .about-info{
+        justify-content: center;
 
-        grid-template-columns:1fr;
+        width: 48px;
 
-    }
+        height: 48px;
 
-    .project-stack{
+        border: 1px solid var(--border);
 
-        gap:8px;
+        border-radius: 14px;
 
-    }
+        background: white;
 
-    .footer-top{
-
-        flex-direction:column;
-
-        gap:35px;
+        font-size: 1.2rem;
 
     }
 
-    .footer-bottom{
+    .hero h1 {
 
-        flex-direction:column;
+        font-size: 3.4rem;
 
-        gap:20px;
+    }
 
-        text-align:center;
+    h2 {
+
+        font-size: 2.4rem;
+
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .btn-primary,
+
+    .btn-secondary {
+
+        width: 260px;
+
+    }
+
+    .hero-image {
+
+        max-width: 340px;
+
+    }
+
+    .trust .container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .project {
+
+        gap: 40px;
+
+        margin-bottom: 120px;
+
+    }
+
+    .project-content h2 {
+
+        font-size: 2.3rem;
+
+    }
+
+    .project-content h3 {
+
+        font-size: 1.2rem;
+
+    }
+
+    .project-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .project-buttons a {
+
+        width: 230px;
+
+    }
+
+    .process-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .contact-form {
+
+        padding: 35px;
 
     }
 
 }
 
 
-/*==============================
+/*==========================================================
 600px
-==============================*/
+==========================================================*/
 
-@media (max-width:600px){
+@media (max-width:600px) {
 
-    body{
+    body {
 
-        font-size:15px;
-
-    }
-
-    section{
-
-        padding:80px 0;
+        font-size: 15px;
 
     }
 
-    .container{
+    .hero {
 
-        width:92%;
-
-    }
-
-    h2{
-
-        font-size:2rem;
+        padding-top: 120px;
 
     }
 
-    .hero h1{
+    .hero h1 {
 
-        font-size:2.6rem;
-
-    }
-
-    .hero h2{
-
-        font-size:1.05rem;
+        font-size: 2.8rem;
 
     }
 
-    .hero p{
+    h2 {
 
-        font-size:1rem;
+        font-size: 2rem;
 
     }
 
-    .contact-form{
+    .hero p {
 
-        padding:28px;
+        font-size: 1rem;
+
+    }
+
+    .hero-stack {
+
+        gap: 10px;
+
+    }
+
+    .hero-stack span {
+
+        font-size: .82rem;
+
+        padding: 10px 14px;
+
+    }
+
+    .service-card {
+
+        padding: 35px;
+
+    }
+
+    .about-founder {
+
+        padding: 25px;
+
+    }
+
+    .contact-form {
+
+        padding: 28px;
+
+    }
+
+    .tech-grid {
+
+        justify-content: flex-start;
 
     }
 
 }
 
 
-/*==============================
+/*==========================================================
 480px
-==============================*/
+==========================================================*/
 
-@media (max-width:480px){
+@media (max-width:480px) {
 
-    .logo{
+    .container {
 
-        font-size:1rem;
-
-    }
-
-    .hero-image{
-
-        max-width:280px;
+        width: 92%;
 
     }
 
-    .project-content h3{
+    .logo {
 
-        font-size:1.6rem;
-
-    }
-
-    .timeline-item{
-
-        padding-left:35px;
+        font-size: 1.1rem;
 
     }
 
-    .timeline::before{
+    .hero-image {
 
-        left:8px;
+        max-width: 270px;
 
     }
 
-    .timeline-item::before{
+    .hero h1 {
 
-        width:18px;
+        font-size: 2.35rem;
 
-        height:18px;
+    }
+
+    h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+    .hero-buttons {
+
+        width: 100%;
+
+    }
+
+    .btn-primary,
+
+    .btn-secondary {
+
+        width: 100%;
+
+    }
+
+    .project-content h2 {
+
+        font-size: 2rem;
+
+    }
+
+    .project-content h3 {
+
+        font-size: 1.1rem;
+
+    }
+
+    .project-stack {
+
+        gap: 8px;
+
+    }
+
+    .project-stack span {
+
+        font-size: .8rem;
+
+        padding: 10px 14px;
+
+    }
+
+    .tech-item {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+    .footer-grid {
+
+        gap: 30px;
 
     }
 
 }
 
 
-/*==============================
+/*==========================================================
 360px
-==============================*/
+==========================================================*/
 
-@media (max-width:360px){
+@media (max-width:360px) {
 
-    .hero h1{
+    .hero h1 {
 
-        font-size:2.2rem;
-
-    }
-
-    h2{
-
-        font-size:1.8rem;
+        font-size: 2rem;
 
     }
 
-    .btn{
+    h2 {
 
-        padding:14px 20px;
+        font-size: 1.6rem;
 
-        font-size:.9rem;
+    }
+
+    .hero-tag {
+
+        font-size: .7rem;
+
+    }
+
+    .service-card {
+
+        padding: 28px;
+
+    }
+
+    .step {
+
+        padding: 28px;
+
+    }
+
+    .contact-form {
+
+        padding: 22px;
+
+    }
+
+    .btn-primary,
+
+    .btn-secondary,
+
+    .btn-nav {
+
+        height: 52px;
+
+        font-size: .9rem;
 
     }
 
