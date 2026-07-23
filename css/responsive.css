@@ -347,6 +347,126 @@ VXPLAY SOFTWARE STUDIO
 
     }
 
+    /*======================================================
+    TECNOLOGÍAS — SOLO MÓVIL
+    En PC sigue siendo el flex centrado con las 16.
+    Aquí: rejilla fija de 3 columnas y solo el stack
+    relevante (2 frontend · 2 backend · 2 frameworks · 3 BD).
+    ======================================================*/
+
+    .tech-grid {
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 12px;
+
+        margin-top: 50px;
+
+    }
+
+    .tech-item {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-height: 52px;
+
+        padding: 12px 6px;
+
+        text-align: center;
+
+        font-size: .85rem;
+
+        border-radius: 16px;
+
+    }
+
+    /* Debe ir DESPUÉS de .tech-item: misma especificidad,
+       así que gana la última regla declarada. */
+
+    .tech-item--extra {
+
+        display: none;
+
+    }
+
+    /*======================================================
+    FOOTER — SOLO MÓVIL
+    Marca arriba a todo el ancho, y debajo dos columnas:
+    Navegación a la izquierda, Redes a la derecha.
+    ======================================================*/
+
+    .footer-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 45px 20px;
+
+        text-align: left;
+
+        align-items: start;
+
+    }
+
+    .footer-brand {
+
+        grid-column: 1 / -1;
+
+        text-align: center;
+
+        padding-bottom: 35px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+    }
+
+    .footer-brand p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+    .footer-nav {
+
+        text-align: left;
+
+    }
+
+    .footer-social {
+
+        text-align: right;
+
+    }
+
+    .footer-grid h4 {
+
+        margin-bottom: 18px;
+
+        font-size: 1rem;
+
+    }
+
+    .footer-grid a {
+
+        margin-bottom: 12px;
+
+    }
+
+    /* El desplazamiento del hover se invierte en la columna derecha. */
+
+    .footer-social a:hover {
+
+        transform: translateX(-4px);
+
+    }
+
 }
 
 
@@ -503,17 +623,20 @@ VXPLAY SOFTWARE STUDIO
 
     }
 
+    /* Ojo: aquí NO poner width:100% en .tech-item.
+       Era lo que rompía la rejilla y las apilaba una por fila. */
+
     .tech-item {
 
-        width: 100%;
+        padding: 12px 4px;
 
-        text-align: center;
+        font-size: .8rem;
 
     }
 
     .footer-grid {
 
-        gap: 30px;
+        gap: 35px 14px;
 
     }
 
@@ -559,6 +682,24 @@ VXPLAY SOFTWARE STUDIO
     .contact-form {
 
         padding: 22px;
+
+    }
+
+    /* "PostgreSQL" es la palabra más larga: que no desborde. */
+
+    .tech-grid {
+
+        gap: 8px;
+
+    }
+
+    .tech-item {
+
+        font-size: .74rem;
+
+        padding: 12px 2px;
+
+        letter-spacing: -.2px;
 
     }
 
