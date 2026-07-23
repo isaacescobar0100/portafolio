@@ -2,20 +2,22 @@
 VXPLAY CUSTOM CURSOR
 ==========================================================*/
 
-html{
-    cursor:none;
-}
+/*
+   El cursor nativo SOLO se oculta cuando cursor.js logró
+   crear el cursor personalizado (añade .custom-cursor al
+   <html>). Si el JS falla, el mouse sigue siendo visible.
+*/
 
-body{
-    cursor:none;
-}
+html.custom-cursor,
+html.custom-cursor body,
+html.custom-cursor a,
+html.custom-cursor button,
+html.custom-cursor input,
+html.custom-cursor textarea,
+html.custom-cursor select {
 
-a,
-button,
-input,
-textarea,
-select{
-    cursor:none;
+    cursor: none;
+
 }
 
 
@@ -23,33 +25,34 @@ select{
 DOT
 ==========================================================*/
 
-.cursor-dot{
+.cursor-dot {
 
-    position:fixed;
+    position: fixed;
 
-    width:8px;
+    width: 8px;
 
-    height:8px;
+    height: 8px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:#111;
+    background: #111;
 
-    left:0;
+    left: 0;
 
-    top:0;
+    top: 0;
 
-    transform:translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 
-    pointer-events:none;
+    pointer-events: none;
 
-    z-index:999999;
+    z-index: 999999;
 
-    transition:
-        transform .15s ease,
-        opacity .25s ease;
+    will-change: transform;
 
-    mix-blend-mode:difference;
+    /* Sin transición en transform: el punto debe ir pegado al mouse. */
+    transition: opacity .25s ease;
+
+    mix-blend-mode: difference;
 
 }
 
@@ -58,38 +61,35 @@ DOT
 RING
 ==========================================================*/
 
-.cursor-ring{
+.cursor-ring {
 
-    position:fixed;
+    position: fixed;
 
-    width:36px;
+    width: 36px;
 
-    height:36px;
+    height: 36px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    border:1.5px solid #111;
+    border: 1.5px solid #111;
 
-    left:0;
+    left: 0;
 
-    top:0;
+    top: 0;
 
-    transform:translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 
-    pointer-events:none;
+    pointer-events: none;
 
-    z-index:999998;
+    z-index: 999998;
+
+    will-change: transform;
 
     transition:
-
         width .28s ease,
-
         height .28s ease,
-
         border-color .28s ease,
-
         opacity .28s ease,
-
         background .28s ease;
 
 }
@@ -99,13 +99,13 @@ RING
 HOVER
 ==========================================================*/
 
-.cursor-hover{
+.cursor-ring.cursor-hover {
 
-    width:70px !important;
+    width: 62px;
 
-    height:70px !important;
+    height: 62px;
 
-    background:rgba(17,17,17,.06);
+    background: rgba(17, 17, 17, .06);
 
 }
 
@@ -114,11 +114,11 @@ HOVER
 CLICK
 ==========================================================*/
 
-.cursor-click{
+.cursor-ring.cursor-click {
 
-    width:26px !important;
+    width: 26px;
 
-    height:26px !important;
+    height: 26px;
 
 }
 
@@ -127,35 +127,32 @@ CLICK
 HIDDEN
 ==========================================================*/
 
-.cursor-hidden{
+.cursor-dot.cursor-hidden,
+.cursor-ring.cursor-hidden {
 
-    opacity:0;
+    opacity: 0;
 
 }
 
 
 /*==========================================================
-DISABLE MOBILE
+DESACTIVAR EN MÓVIL / SIN HOVER
 ==========================================================*/
 
-@media(pointer:coarse){
+@media (hover: none),
+(pointer: coarse) {
 
-    html{
+    html,
+    body {
 
-        cursor:auto;
-
-    }
-
-    body{
-
-        cursor:auto;
+        cursor: auto;
 
     }
 
     .cursor-dot,
-    .cursor-ring{
+    .cursor-ring {
 
-        display:none;
+        display: none;
 
     }
 

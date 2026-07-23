@@ -250,9 +250,14 @@ HERO
 
 }
 
+/*
+   Sin `forwards`: una animación rellenada gana sobre los
+   estilos inline y anulaba el parallax de experience.js.
+*/
+
 .hero-image {
 
-    animation: zoomIn 1.2s ease forwards;
+    animation: zoomIn 1.2s ease;
 
 }
 
@@ -412,15 +417,28 @@ html {
 
 }
 
-* {
+/*
+   Se eliminó el `* { transition-property: ... }` global:
+   aplicaba transiciones de transform a TODO (incluido el
+   cursor personalizado y la barra de progreso), provocando
+   arrastre y parpadeo. Cada componente ya define la suya.
+*/
 
-    transition-property:
+@media (prefers-reduced-motion: reduce) {
 
-        color,
-        background,
-        border,
-        opacity,
-        transform;
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+
+        scroll-behavior: auto !important;
+
+    }
 
 }
 
@@ -454,21 +472,15 @@ PROGRESS BAR
 HERO INTRO
 ==========================================================*/
 
+/*
+   Antes: opacity:0 hasta que effects.js añadiera .hero-loaded.
+   Si ese script fallaba, el hero entero quedaba invisible.
+   Ahora es una animación CSS pura, sin depender de JS.
+*/
+
 .hero {
 
-    opacity: 0;
-
-    transform: translateY(40px);
-
-    transition: 1s ease;
-
-}
-
-.hero.hero-loaded {
-
-    opacity: 1;
-
-    transform: translateY(0);
+    animation: fadeUp .9s ease both;
 
 }
 
@@ -527,6 +539,14 @@ PROJECT GLOW
 
     overflow:hidden;
 
+    /* Sin estos valores por defecto, calc(var(--x) - 130px)
+       era inválido antes del primer mousemove y el brillo
+       nunca se pintaba. */
+
+    --x:50%;
+
+    --y:50%;
+
 }
 
 .project::before{
@@ -570,7 +590,14 @@ PROJECT GLOW
 IMAGE REVEAL
 ==========================================================*/
 
-.project-image img{
+/*
+   El estado oculto solo se aplica si experience.js cargó
+   (añade .reveal-ready al <html>). Antes ese archivo ni
+   siquiera estaba enlazado en el HTML, así que las 6
+   imágenes de proyectos quedaban en opacity:0 para siempre.
+*/
+
+html.reveal-ready .project-image img{
 
     opacity:0;
 
@@ -584,7 +611,7 @@ IMAGE REVEAL
 
 }
 
-.project-image img.visible{
+html.reveal-ready .project-image img.visible{
 
     opacity:1;
 

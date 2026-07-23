@@ -1784,17 +1784,31 @@ MOBILE NAVBAR
 
     }
 
+    .btn-nav {
+
+        display: none;
+
+    }
+
+    /*
+       Panel desplegable. Se ancla al header (position:absolute
+       sobre .header, que es fixed) para que se adapte solo a
+       la altura del header en cada breakpoint.
+    */
+
     .navbar {
 
-        position: fixed;
+        position: absolute;
 
-        top: 90px;
+        top: 100%;
 
         left: 20px;
 
         right: 20px;
 
-        background: rgba(255, 255, 255, .95);
+        margin-top: 10px;
+
+        background: rgba(255, 255, 255, .97);
 
         backdrop-filter: blur(18px);
 
@@ -1802,21 +1816,27 @@ MOBILE NAVBAR
 
         border-radius: 24px;
 
-        padding: 30px;
+        padding: 26px 30px;
 
         display: flex;
 
         flex-direction: column;
 
-        gap: 24px;
+        gap: 22px;
+
+        max-height: calc(100vh - 140px);
+
+        overflow-y: auto;
 
         opacity: 0;
 
         visibility: hidden;
 
-        transform: translateY(-20px);
+        pointer-events: none;
 
-        transition: .35s;
+        transform: translateY(-16px);
+
+        transition: opacity .3s ease, transform .3s ease, visibility .3s;
 
         box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
 
@@ -1828,7 +1848,17 @@ MOBILE NAVBAR
 
         visibility: visible;
 
+        pointer-events: auto;
+
         transform: translateY(0);
+
+    }
+
+    /* El subrayado animado no aplica en el panel vertical. */
+
+    .navbar a::after {
+
+        display: none;
 
     }
 

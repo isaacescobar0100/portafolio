@@ -3,49 +3,75 @@ VXPLAY
 PRELOADER.JS
 ==========================================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
 
-    const loader = document.querySelector(".loader");
+    /*======================================================
+    DESBLOQUEO DE EMERGENCIA
+    Pase lo que pase, el body nunca se queda bloqueado.
+    ======================================================*/
 
-    if (!loader) return;
+    function unlock() {
 
-    const progress = loader.querySelector(".loader-progress");
-    const percent = loader.querySelector(".loader-percent");
+        document.body.classList.remove("loading");
 
-    let value = 0;
+    }
 
-    const interval = setInterval(() => {
+    // Si algo falla (imagen rota, JS con error, etc.)
+    // a los 4s el scroll se libera igual.
+    const failsafe = setTimeout(unlock, 4000);
 
-        value++;
+    document.addEventListener("DOMContentLoaded", () => {
 
-        if (progress) {
+        const loader = document.querySelector(".loader");
 
-            progress.style.width = value + "%";
+        // Sin markup de loader no hay nada que animar,
+        // pero el body SÍ debe desbloquearse.
+        if (!loader) {
+
+            clearTimeout(failsafe);
+
+            unlock();
+
+            return;
 
         }
 
-        if (percent) {
+        const progress = loader.querySelector(".loader-progress");
+        const percent = loader.querySelector(".loader-percent");
 
-            percent.textContent = value + "%";
+        let value = 0;
 
-        }
+        const interval = setInterval(() => {
 
-        if (value >= 100) {
+            value += 2;
+
+            if (value > 100) value = 100;
+
+            if (progress) progress.style.width = value + "%";
+
+            if (percent) percent.textContent = value + "%";
+
+            if (value < 100) return;
 
             clearInterval(interval);
+            clearTimeout(failsafe);
 
             loader.classList.add("loaded");
 
-            document.body.classList.remove("loading");
+            unlock();
 
-            setTimeout(() => {
+            setTimeout(() => loader.remove(), 900);
 
-                loader.remove();
+        }, 12);
 
-            }, 900);
+    });
 
-        }
+    // Refuerzo: si la ventana termina de cargar y seguimos
+    // bloqueados por cualquier motivo, liberamos.
+    window.addEventListener("load", () => {
 
-    }, 18);
+        setTimeout(unlock, 1500);
 
-});
+    });
+
+})();

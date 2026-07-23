@@ -15,11 +15,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     MENU
     ======================================================*/
 
-    menu.addEventListener("click",()=>{
+    menu.addEventListener("click",(e)=>{
 
-        menu.classList.toggle("active");
-        navbar.classList.toggle("active");
-        document.body.classList.toggle("menu-open");
+        e.stopPropagation();
+
+        const open=!navbar.classList.contains("active");
+
+        menu.classList.toggle("active",open);
+        navbar.classList.toggle("active",open);
+        document.body.classList.toggle("menu-open",open);
+
+        menu.setAttribute("aria-expanded",String(open));
+        menu.setAttribute("aria-label",open?"Cerrar menú":"Abrir menú");
 
     });
 
@@ -147,6 +154,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         menu.classList.remove("active");
         navbar.classList.remove("active");
         document.body.classList.remove("menu-open");
+
+        menu.setAttribute("aria-expanded","false");
+        menu.setAttribute("aria-label","Abrir menú");
 
     }
 

@@ -7,13 +7,16 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     initProgressBar();
 
-    initProjectTilt();
-
     initCounters();
 
     initStaggerReveal();
 
-    initHeroAnimation();
+    // El tilt depende del puntero: no aplica en táctil.
+    if(window.matchMedia("(hover: hover) and (pointer: fine)").matches){
+
+        initProjectTilt();
+
+    }
 
 });
 
@@ -36,11 +39,18 @@ function initProgressBar(){
 
         const height=document.documentElement.scrollHeight-window.innerHeight;
 
-        const progress=(scroll/height)*100;
+        // Sin esta guarda, en páginas cortas height=0 -> NaN%.
+        if(height<=0){
 
-        bar.style.width=progress+"%";
+            bar.style.width="0%";
 
-    });
+            return;
+
+        }
+
+        bar.style.width=Math.min(100,(scroll/height)*100)+"%";
+
+    },{passive:true});
 
 }
 
@@ -184,16 +194,7 @@ function initStaggerReveal(){
 }
 
 
-/*==========================================================
-HERO INTRO
-==========================================================*/
-
-function initHeroAnimation(){
-
-    const hero=document.querySelector(".hero");
-
-    if(!hero)return;
-
-    hero.classList.add("hero-loaded");
-
-}
+/*
+   initHeroAnimation() se eliminó: el hero ahora entra con una
+   animación CSS pura (animations.css), sin depender de JS.
+*/

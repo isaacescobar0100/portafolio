@@ -252,39 +252,14 @@ VXPLAY SOFTWARE STUDIO
 
     }
 
-    .navbar {
-
-        display: none;
-
-    }
-
-    .btn-nav {
-
-        display: none;
-
-    }
-
-    .menu {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        width: 48px;
-
-        height: 48px;
-
-        border: 1px solid var(--border);
-
-        border-radius: 14px;
-
-        background: white;
-
-        font-size: 1.2rem;
-
-    }
+    /*
+       OJO: no poner aquí `.navbar{display:none}`.
+       Este archivo carga después de style.css y anulaba el
+       `display:flex` del panel móvil; como `.navbar.active`
+       no define display, el menú no aparecía nunca en ≤768px.
+       El ocultado del nav y el botón hamburguesa ya se
+       resuelven en style.css (@media max-width:900px).
+    */
 
     .hero h1 {
 

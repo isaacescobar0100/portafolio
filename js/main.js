@@ -1,48 +1,21 @@
 /*==========================================================
 VXPLAY SOFTWARE STUDIO
 main.js
+
+NOTA: el header sticky, el menú activo y el menú hamburguesa
+los maneja navbar.js. Aquí NO se duplican (antes ambos
+archivos hacían toggle de la misma clase y se anulaban).
 ==========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    initHeader();
 
     initReveal();
 
     initSmoothScroll();
 
-    initActiveMenu();
-
-    initMobileMenu();
+    initYear();
 
 });
-
-
-/*==========================================================
-HEADER SCROLL
-==========================================================*/
-
-function initHeader() {
-
-    const header = document.querySelector(".header");
-
-    if (!header) return;
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 40) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    });
-
-}
 
 
 /*==========================================================
@@ -52,20 +25,20 @@ SCROLL REVEAL
 function initReveal() {
 
     const elements = document.querySelectorAll(
-
-        ".section-heading,.project,.service-card,.step,.about-image,.about-content,.tech-item"
-
+        ".section-heading,.project,.about-image,.about-content,.trust-item"
     );
+
+    if (!elements.length) return;
 
     const observer = new IntersectionObserver((entries) => {
 
         entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+            if (!entry.isIntersecting) return;
 
-                entry.target.classList.add("active");
+            entry.target.classList.add("active");
 
-            }
+            observer.unobserve(entry.target);
 
         });
 
@@ -92,21 +65,43 @@ SMOOTH SCROLL
 
 function initSmoothScroll() {
 
-    const links = document.querySelectorAll('a[href^="#"]');
+    const header = document.querySelector(".header");
 
-    links.forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
 
         link.addEventListener("click", (e) => {
 
-            const target = document.querySelector(link.getAttribute("href"));
+            const href = link.getAttribute("href");
+
+            // "#" solo no es un selector válido: querySelector("#")
+            // lanzaba excepción y rompía los botones "Ver Demo".
+            if (!href || href === "#") return;
+
+            let target = null;
+
+            try {
+
+                target = document.querySelector(href);
+
+            } catch {
+
+                return;
+
+            }
 
             if (!target) return;
 
             e.preventDefault();
 
+            // Si el menú móvil está abierto, el body tiene
+            // overflow:hidden y el scroll no funcionaría.
+            document.body.classList.remove("menu-open");
+
+            const offset = (header ? header.offsetHeight : 90) + 12;
+
             window.scrollTo({
 
-                top: target.offsetTop - 80,
+                top: target.getBoundingClientRect().top + window.scrollY - offset,
 
                 behavior: "smooth"
 
@@ -117,171 +112,16 @@ function initSmoothScroll() {
     });
 
 }
-/*==========================================================
-ACTIVE MENU
-==========================================================*/
-
-function initActiveMenu() {
-
-    const sections = document.querySelectorAll("section[id]");
-
-    const links = document.querySelectorAll(".navbar a");
-
-    window.addEventListener("scroll", () => {
-
-        let current = "";
-
-        sections.forEach(section => {
-
-            const top = section.offsetTop - 120;
-
-            const height = section.offsetHeight;
-
-            if (window.scrollY >= top && window.scrollY < top + height) {
-
-                current = section.getAttribute("id");
-
-            }
-
-        });
-
-        links.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (link.getAttribute("href") === "#" + current) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
-    });
-
-}
 
 
 /*==========================================================
-MOBILE MENU
+AÑO ACTUAL
 ==========================================================*/
 
-function initMobileMenu() {
+function initYear() {
 
-    const menu = document.querySelector(".menu");
+    const year = document.querySelector("#year");
 
-    const navbar = document.querySelector(".navbar");
-
-    if (!menu || !navbar) return;
-
-    menu.addEventListener("click", () => {
-
-        navbar.classList.toggle("show");
-
-        menu.classList.toggle("active");
-
-    });
-
-    document.querySelectorAll(".navbar a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            navbar.classList.remove("show");
-
-            menu.classList.remove("active");
-
-        });
-
-    });
-
-}
-
-
-/*==========================================================
-PROJECT PARALLAX
-==========================================================*/
-
-function initProjectParallax() {
-
-    const images = document.querySelectorAll(".project-image img");
-
-    if (images.length === 0) return;
-
-    window.addEventListener("scroll", () => {
-
-        const scroll = window.scrollY;
-
-        images.forEach(img => {
-
-            const rect = img.getBoundingClientRect();
-
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-
-                const speed = (scroll - rect.top) * 0.015;
-
-                img.style.transform = `translateY(${speed}px) scale(1.02)`;
-
-            }
-
-        });
-
-    });
-
-}
-
-initProjectParallax();
-
-
-/*==========================================================
-TECH ITEMS HOVER
-==========================================================*/
-
-document.querySelectorAll(".tech-item").forEach(item => {
-
-    item.addEventListener("mouseenter", () => {
-
-        item.style.transform = "translateY(-6px)";
-
-    });
-
-    item.addEventListener("mouseleave", () => {
-
-        item.style.transform = "translateY(0px)";
-
-    });
-
-});
-
-
-/*==========================================================
-PROJECT BUTTON EFFECT
-==========================================================*/
-
-document.querySelectorAll(".project-buttons a").forEach(button => {
-
-    button.addEventListener("mouseenter", () => {
-
-        button.style.transform = "translateY(-4px)";
-
-    });
-
-    button.addEventListener("mouseleave", () => {
-
-        button.style.transform = "translateY(0px)";
-
-    });
-
-});
-
-
-/*==========================================================
-CURRENT YEAR
-==========================================================*/
-
-const year = document.querySelector("#year");
-
-if (year) {
-
-    year.textContent = new Date().getFullYear();
+    if (year) year.textContent = new Date().getFullYear();
 
 }

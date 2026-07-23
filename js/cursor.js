@@ -5,17 +5,28 @@ CURSOR.JS
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // No mostrar cursor personalizado en dispositivos táctiles
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-
     /*======================================================
-    CREATE CURSOR
+    NO USAR EN TÁCTIL NI SIN HOVER REAL
     ======================================================*/
 
-    const cursor = document.createElement("div");
-    cursor.className = "cursor";
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
-    document.body.appendChild(cursor);
+    /*======================================================
+    CREAR CURSOR (dot + ring, las clases que espera el CSS)
+    ======================================================*/
+
+    const dot = document.createElement("div");
+    dot.className = "cursor-dot cursor-hidden";
+
+    const ring = document.createElement("div");
+    ring.className = "cursor-ring cursor-hidden";
+
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    // Solo ahora ocultamos el cursor nativo: si este script
+    // fallara, el usuario conserva su mouse de siempre.
+    document.documentElement.classList.add("custom-cursor");
 
     /*======================================================
     VARIABLES
@@ -24,33 +35,38 @@ document.addEventListener("DOMContentLoaded", () => {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
 
-    let currentX = mouseX;
-    let currentY = mouseY;
+    let ringX = mouseX;
+    let ringY = mouseY;
 
     /*======================================================
-    MOUSE POSITION
+    POSICIÓN DEL MOUSE
     ======================================================*/
 
-    document.addEventListener("mousemove", (e) => {
+    window.addEventListener("mousemove", (e) => {
 
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        cursor.style.opacity = "1";
+        // El punto sigue al mouse sin retraso.
+        dot.style.transform =
+            `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
 
-    });
+        dot.classList.remove("cursor-hidden");
+        ring.classList.remove("cursor-hidden");
+
+    }, { passive: true });
 
     /*======================================================
-    ANIMATION
+    ANIMACIÓN DEL ANILLO (suavizado)
     ======================================================*/
 
     function animate() {
 
-        currentX += (mouseX - currentX) * 0.14;
-        currentY += (mouseY - currentY) * 0.14;
+        ringX += (mouseX - ringX) * 0.16;
+        ringY += (mouseY - ringY) * 0.16;
 
-        cursor.style.transform =
-            `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+        ring.style.transform =
+            `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
 
         requestAnimationFrame(animate);
 
@@ -59,34 +75,31 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
 
     /*======================================================
-    HOVER EFFECT
+    HOVER
     ======================================================*/
+
+    const HOVER_TARGETS =
+        "a,button,input,textarea,select,.service-card,.tech-item,.project-stack span,.hero-stack span";
 
     document.addEventListener("mouseover", (e) => {
 
-        if (
-            e.target.closest(
-                "a,button,.btn-primary,.btn-secondary,.project,.service-card,.tech-item,img"
-            )
-        ) {
-
-            cursor.classList.add("cursor-hover");
-
-        }
+        if (e.target.closest(HOVER_TARGETS)) ring.classList.add("cursor-hover");
 
     });
 
     document.addEventListener("mouseout", (e) => {
 
-        if (
-            e.target.closest(
-                "a,button,.btn-primary,.btn-secondary,.project,.service-card,.tech-item,img"
-            )
-        ) {
+        // Solo apagamos si de verdad salimos del elemento interactivo,
+        // no al pasar entre sus hijos (esto causaba parpadeo).
+        const from = e.target.closest(HOVER_TARGETS);
 
-            cursor.classList.remove("cursor-hover");
+        if (!from) return;
 
-        }
+        const to = e.relatedTarget && e.relatedTarget.closest
+            ? e.relatedTarget.closest(HOVER_TARGETS)
+            : null;
+
+        if (from !== to) ring.classList.remove("cursor-hover");
 
     });
 
@@ -94,32 +107,32 @@ document.addEventListener("DOMContentLoaded", () => {
     CLICK
     ======================================================*/
 
-    document.addEventListener("mousedown", () => {
+    document.addEventListener("mousedown", () => ring.classList.add("cursor-click"));
 
-        cursor.classList.add("cursor-click");
-
-    });
-
-    document.addEventListener("mouseup", () => {
-
-        cursor.classList.remove("cursor-click");
-
-    });
+    document.addEventListener("mouseup", () => ring.classList.remove("cursor-click"));
 
     /*======================================================
-    WINDOW LEAVE
+    SALIR / ENTRAR DE LA VENTANA
     ======================================================*/
 
-    document.addEventListener("mouseleave", () => {
+    function hide() {
 
-        cursor.style.opacity = "0";
+        dot.classList.add("cursor-hidden");
+        ring.classList.add("cursor-hidden");
 
-    });
+    }
 
-    document.addEventListener("mouseenter", () => {
+    function show() {
 
-        cursor.style.opacity = "1";
+        dot.classList.remove("cursor-hidden");
+        ring.classList.remove("cursor-hidden");
 
-    });
+    }
+
+    document.addEventListener("mouseleave", hide);
+    document.addEventListener("mouseenter", show);
+
+    window.addEventListener("blur", hide);
+    window.addEventListener("focus", show);
 
 });
