@@ -1,0 +1,9 @@
+{
+  "name": "portafolio-vxplay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portafolio VXPLAY Software Studio",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

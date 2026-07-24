@@ -2,20 +2,17 @@
 VXPLAY SOFTWARE STUDIO
 contact.js
 
-Envío real del formulario de cotización usando Web3Forms.
+Envío del formulario de cotización.
+
+Este archivo NO envía correos: solo valida y hace POST a
+/api/contact, la función serverless que sí tiene acceso a
+las credenciales de Gmail. Aquí no hay ninguna clave, y por
+eso el código fuente puede ser público sin riesgo.
+
 Los mensajes llegan a vxplay.co@gmail.com.
-
-La ACCESS_KEY es pública por diseño (viaja en el cliente):
-no es una contraseña, solo identifica el formulario. El
-anti-spam va por honeypot + los filtros de Web3Forms.
-
-Panel para cambiar la clave o el correo destino:
-https://web3forms.com
 ==========================================================*/
 
-const ACCESS_KEY = "6d60870c-142c-4d1b-8bfa-4eda7264ded8";
-
-const ENDPOINT = "https://api.web3forms.com/submit";
+const ENDPOINT = "/api/contact";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -75,18 +72,6 @@ function initContactForm() {
 
         }
 
-        if (!ACCESS_KEY || ACCESS_KEY === "PEGA_AQUI_TU_ACCESS_KEY") {
-
-            showStatus(
-                status,
-                "error",
-                "El formulario aún no está conectado. Escríbeme a vxplay.co@gmail.com"
-            );
-
-            return;
-
-        }
-
         setLoading(button, true, "Enviando...");
 
         showStatus(status, "", "");
@@ -126,7 +111,7 @@ function initContactForm() {
                 showStatus(
                     status,
                     "error",
-                    "No se pudo enviar. Escríbeme a vxplay.co@gmail.com"
+                    result.message || "No se pudo enviar. Escríbeme a vxplay.co@gmail.com"
                 );
 
             }
@@ -227,31 +212,21 @@ function validate(form, data) {
 /*==========================================================
 PAYLOAD
 
-"from_name" es el remitente que se ve en la bandeja y
-"replyTo" hace que al responder el correo vaya al cliente.
+El asunto, el remitente y el reply-to los arma el servidor
+en /api/contact. Aquí solo viajan los datos crudos.
 ==========================================================*/
 
 function buildPayload(data) {
 
-    const empresa = data.empresa || "No especificada";
-
     return {
 
-        access_key: ACCESS_KEY,
+        nombre: data.nombre,
 
-        subject: `Nueva cotización de ${data.nombre}`,
+        email: data.email,
 
-        from_name: "Portafolio VXPLAY",
+        empresa: data.empresa,
 
-        replyTo: data.email,
-
-        Nombre: data.nombre,
-
-        Correo: data.email,
-
-        Empresa: empresa,
-
-        Mensaje: data.mensaje,
+        mensaje: data.mensaje,
 
         botcheck: false
 
