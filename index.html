@@ -1242,21 +1242,50 @@
 
 
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form" novalidate>
 
-                <input type="text" placeholder="Nombre">
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Nombre"
+                    autocomplete="name"
+                    required>
 
-                <input type="email" placeholder="Correo electrónico">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Correo electrónico"
+                    autocomplete="email"
+                    required>
 
-                <input type="text" placeholder="Empresa">
+                <input
+                    type="text"
+                    name="empresa"
+                    placeholder="Empresa"
+                    autocomplete="organization">
 
-                <textarea rows="6" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                <textarea
+                    rows="6"
+                    name="mensaje"
+                    placeholder="Cuéntame sobre tu proyecto..."
+                    required></textarea>
 
-                <button type="submit" class="btn-primary">
+                <!-- Honeypot anti-spam: invisible para personas,
+                     los bots suelen rellenarlo. -->
+                <input
+                    type="checkbox"
+                    name="botcheck"
+                    class="form-honeypot"
+                    tabindex="-1"
+                    autocomplete="off">
+
+                <button type="submit" class="btn-primary" id="contact-submit">
 
                     Enviar mensaje
 
                 </button>
+
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 
             </form>
 
@@ -1383,6 +1412,7 @@
     <script src="js/effects.js"></script>
     <script src="js/experience.js"></script>
     <script src="js/cursor.js"></script>
+    <script src="js/contact.js"></script>
 
 </body>
 

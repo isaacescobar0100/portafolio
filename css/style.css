@@ -1554,6 +1554,94 @@ CONTACT
 
 }
 
+.contact-form input.has-error,
+
+.contact-form textarea.has-error {
+
+    border-color: #D14343;
+
+    background: #FFF7F7;
+
+}
+
+.contact-form button.is-loading {
+
+    opacity: .6;
+
+    cursor: wait;
+
+}
+
+/* Honeypot: fuera de la vista pero no display:none,
+   así los bots sí lo rellenan. */
+.form-honeypot {
+
+    position: absolute !important;
+
+    left: -9999px;
+
+    width: 1px !important;
+
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+.form-status {
+
+    margin: 18px 0 0;
+
+    padding: 0;
+
+    font-size: .95rem;
+
+    line-height: 1.5;
+
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition: opacity .3s ease, max-height .3s ease, padding .3s ease;
+
+}
+
+.form-status.is-visible {
+
+    max-height: 120px;
+
+    opacity: 1;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+}
+
+.form-status.is-success {
+
+    background: #EEF7F0;
+
+    border: 1px solid #BFE0C8;
+
+    color: #1F6B38;
+
+}
+
+.form-status.is-error {
+
+    background: #FDF2F2;
+
+    border: 1px solid #F0C4C4;
+
+    color: #A32C2C;
+
+}
+
 
 /*==========================================================
 FOOTER
