@@ -1117,23 +1117,13 @@ BUTTONS
 
     font-weight: 600;
 
-    transition: .35s;
-
-}
-
-.project-buttons a:first-child {
-
     background: #111;
 
-    color: white;
+    color: #fff;
 
-}
+    border: 1px solid #111;
 
-.project-buttons a:last-child {
-
-    border: 1px solid var(--border);
-
-    background: white;
+    transition: .35s;
 
 }
 
