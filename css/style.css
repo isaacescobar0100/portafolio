@@ -1957,3 +1957,451 @@ MOBILE NAVBAR
     }
 
 }
+
+/*==========================================================
+MODAL AVISO DEMO
+==========================================================*/
+
+.demo-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+
+}
+
+.demo-modal.is-open {
+
+    display: flex;
+
+}
+
+.demo-modal__overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(17, 17, 17, .55);
+
+    backdrop-filter: blur(4px);
+
+}
+
+.demo-modal__card {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    max-width: 460px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 42px 36px 32px;
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .25);
+
+    text-align: center;
+
+    animation: demoModalIn .3s ease;
+
+}
+
+@keyframes demoModalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(14px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.demo-modal__close {
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 18px;
+
+    background: none;
+
+    border: none;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    color: var(--secondary);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+}
+
+.demo-modal__close:hover {
+
+    color: var(--primary);
+
+}
+
+.demo-modal__eyebrow {
+
+    display: inline-block;
+
+    font-size: .78rem;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: var(--secondary);
+
+    margin-bottom: 12px;
+
+}
+
+.demo-modal__title {
+
+    font-size: 1.5rem;
+
+    color: var(--primary);
+
+    margin-bottom: 14px;
+
+}
+
+.demo-modal__text {
+
+    color: var(--secondary);
+
+    font-size: 1rem;
+
+    line-height: 1.65;
+
+    margin-bottom: 28px;
+
+}
+
+.demo-modal__actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+}
+
+.demo-modal__btn {
+
+    height: 50px;
+
+    padding: 0 26px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    font-size: .95rem;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+}
+
+.demo-modal__btn--solid {
+
+    background: #111;
+
+    color: #fff;
+
+    border: 1px solid #111;
+
+}
+
+.demo-modal__btn--solid:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.demo-modal__btn--ghost {
+
+    background: transparent;
+
+    color: var(--primary);
+
+    border: 1px solid var(--border);
+
+}
+
+.demo-modal__btn--ghost:hover {
+
+    border-color: var(--primary);
+
+}
+
+body.demo-open {
+
+    overflow: hidden;
+
+}
+
+
+/*==========================================================
+CARRUSEL DE PROYECTOS
+==========================================================*/
+
+.carousel {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, .08);
+
+    background: var(--background);
+
+    transition: transform .6s ease;
+
+}
+
+.project:hover .project-image .carousel {
+
+    transform: translateY(-8px) scale(1.015);
+
+}
+
+.carousel__track {
+
+    display: flex;
+
+    transition: transform .5s ease;
+
+    will-change: transform;
+
+}
+
+/* Anula estilos heredados de .project-image img y del
+   sistema de reveal (opacity:0), que dejaría slides ocultas. */
+
+.project-image .carousel__slide {
+
+    min-width: 100%;
+
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    object-position: top center;
+
+    border: 0;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+}
+
+html.reveal-ready .project-image .carousel__slide {
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+}
+
+.carousel__nav {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .85);
+
+    backdrop-filter: blur(4px);
+
+    color: #111;
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transition: var(--transition);
+
+}
+
+.carousel:hover .carousel__nav {
+
+    opacity: 1;
+
+}
+
+.carousel__nav--prev {
+
+    left: 14px;
+
+}
+
+.carousel__nav--next {
+
+    right: 14px;
+
+}
+
+.carousel__nav:hover {
+
+    background: #111;
+
+    color: #fff;
+
+}
+
+.carousel__dots {
+
+    position: absolute;
+
+    bottom: 14px;
+
+    left: 0;
+
+    right: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    z-index: 2;
+
+}
+
+.carousel__dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .55);
+
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+}
+
+.carousel__dot.is-active {
+
+    background: #fff;
+
+    transform: scale(1.35);
+
+}
+
+.carousel.is-single .carousel__nav,
+
+.carousel.is-single .carousel__dots {
+
+    display: none;
+
+}
+
+/* En táctil no hay hover: las flechas se ven siempre. */
+
+@media (hover: none) {
+
+    .carousel__nav {
+
+        opacity: 1;
+
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .carousel__track {
+
+        transition: none;
+
+    }
+
+}
