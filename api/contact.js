@@ -11,9 +11,14 @@ entorno configuradas en el panel de Vercel.
   GMAIL_USER          vxplay.co@gmail.com
   GMAIL_APP_PASSWORD  contraseña de aplicación (16 letras)
   CONTACT_TO          opcional, destino. Por defecto GMAIL_USER
+  TELEGRAM_BOT_TOKEN  opcional, alerta instantánea
+  TELEGRAM_CHAT_ID    opcional, a quién avisa el bot
 
 Se usa contraseña de aplicación porque Google bloquea el
 acceso SMTP con la contraseña normal de la cuenta.
+
+Telegram es opcional: si no están sus dos variables, el
+aviso se omite en silencio y el correo se envía igual.
 ==========================================================*/
 
 const nodemailer = require("nodemailer");
@@ -102,6 +107,10 @@ module.exports = async (req, res) => {
 
     }
 
+    // Telegram va primero y aparte: es el canal de alerta,
+    // así que debe dispararse aunque el correo falle después.
+    await notifyTelegram(data);
+
     try {
 
         const transporter = nodemailer.createTransport({
@@ -172,6 +181,83 @@ module.exports = async (req, res) => {
     }
 
 };
+
+
+/*==========================================================
+ALERTA POR TELEGRAM
+
+Nunca lanza excepción: una alerta caída no puede tumbar
+una cotización que sí llegó.
+==========================================================*/
+
+async function notifyTelegram(data) {
+
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (!token || !chatId) return;
+
+    const text = [
+
+        "🔔 <b>Nueva cotización</b>",
+
+        "",
+
+        `👤 <b>Nombre:</b> ${escapeHtml(data.nombre)}`,
+
+        `📧 <b>Correo:</b> ${escapeHtml(data.email)}`,
+
+        `🏢 <b>Empresa:</b> ${escapeHtml(data.empresa)}`,
+
+        "",
+
+        `💬 ${escapeHtml(data.mensaje)}`
+
+    ].join("\n");
+
+    try {
+
+        // Telegram corta a los 4096 caracteres; el mensaje ya
+        // viene topado, pero por si se suman los emojis.
+        const response = await fetch(
+            `https://api.telegram.org/bot${token}/sendMessage`,
+            {
+
+                method: "POST",
+
+                headers: { "Content-Type": "application/json" },
+
+                body: JSON.stringify({
+
+                    chat_id: chatId,
+
+                    parse_mode: "HTML",
+
+                    disable_web_page_preview: true,
+
+                    text: text.slice(0, 4000)
+
+                })
+
+            }
+        );
+
+        if (!response.ok) {
+
+            const detail = await response.text();
+
+            console.error("Telegram rechazó el aviso:", detail);
+
+        }
+
+    } catch (err) {
+
+        console.error("Telegram no respondió:", err.message);
+
+    }
+
+}
 
 
 /*==========================================================
